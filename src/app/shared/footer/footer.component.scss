@@ -1,0 +1,8 @@
+@import '~src/styles';
+
+footer {
+  grid-area: footer;
+  background: mat-color($mat-grey, 800);
+  @include mat-elevation(2);
+  height: 5em;
+}

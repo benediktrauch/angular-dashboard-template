@@ -1,41 +1,12 @@
 <div class="app-wrapper" [ngClass]="{menuOpen: menuOpen, pushMenu: pushMenu, overlayMenu: overlayMenu}">
 
-  <app-header [menuOpen]="menuOpen" [pushMenu]="pushMenu" [headerFixed]="headerFixed" (toggleMenu)="toggleMenu()">
+  <app-header [menuOpen]="menuOpen" [pushMenu]="pushMenu" [headerFixed]="headerFixed" [overlayMenu]="overlayMenu"
+    (toggleMenu)="toggleMenu()">
   </app-header>
 
-  <nav [ngClass]="{menuOpen: menuOpen, pushMenu: pushMenu, overlayMenu: overlayMenu}">
-    <div class="menu" [ngClass]="{settingsOpen: settingsOpen}">
-      <div class="top">
-        <button *ngIf="menuOpen" class="menuButton" [ngClass]="{menuOpen: menuOpen}" (click)="toggleMenu()">
-          <span class="bar firstBar"></span>
-          <span class="bar secondBar"></span>
-          <span class="bar thirdBar"></span>
-        </button>
-        <div></div>
-        <input type="checkbox" name="pinMenu" id="pinMenu" [value]="pushMenu" (click)="toggleMenuStyle()">
-      </div>
-      <div class="content">
-        <ul>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-        </ul>
-      </div>
-      <div class="bottom">
-        <span class="button" (click)="toggleSettings()">Settings</span>
-        <div class="list">
-          <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </nav>
+  <app-sidebar [menuOpen]="menuOpen" [pushMenu]="pushMenu" [overlayMenu]="overlayMenu" [headerFixed]="headerFixed"
+    (toggleMenu)="toggleMenu()" (toggleMenuStyle)="toggleMenuStyle()">
+  </app-sidebar>
 
   <main (click)="(overlayMenu && menuOpen) ? toggleMenu() : ''">
     <section>
@@ -44,9 +15,5 @@
     </section>
   </main>
 
-
-
-  <footer>
-    <div class="container">Footer</div>
-  </footer>
+  <app-footer></app-footer>
 </div>

@@ -1,10 +1,11 @@
 <header [ngClass]="{headerFixed: headerFixed, pushMenu: pushMenu, menuOpen: menuOpen}">
-
   <div class="left">
     <button class="menuButton" *ngIf="!menuOpen" [ngClass]="{menuOpen: menuOpen}" (click)="_toggleMenu()">
-      <span class="bar firstBar"></span>
+      <!-- <span class="bar firstBar"></span>
       <span class="bar secondBar"></span>
-      <span class="bar thirdBar"></span>
+      src/assets/icons/menu-24px.svg
+      <span class="bar thirdBar"></span> -->
+      <img [src]="menuOpen ? 'assets/icons/menu_open-24px.svg' : 'assets/icons/menu-24px.svg'" alt="">
     </button>
     <div class="company">
       {{companyName}}

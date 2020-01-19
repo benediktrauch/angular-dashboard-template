@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, ViewChild, Output, EventEmitter, ElementRef, HostListener } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { emit } from 'cluster';
 
 export enum KEY_CODE {
   RIGHT_ARROW = 39,
@@ -13,11 +12,14 @@ export enum KEY_CODE {
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
   @Input() menuOpen: boolean;
+  @Input() overlayMenu: boolean;
   @Input() headerFixed: boolean;
   @Input() pushMenu: boolean;
   @Output() toggleMenu = new EventEmitter<boolean>();
+
+  // private menuOpenIcon = require('src/assets/icons/menu_open-24px.svg');
+  // private menuCloseIcon = require('src/assets/icons/menu-24px.svg');
 
   @ViewChild('searchBar', { static: false }) searchBar?: ElementRef<HTMLElement>;
 

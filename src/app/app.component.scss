@@ -31,196 +31,73 @@
         transition: .35s;
     }
   }
-  header {
-      grid-area: header;
-      height: 5em;
-      background: mat-color($mat-grey, 900);
-      display: inline-flex;
-      width: 100%;
-      justify-content: space-between;
-      overflow-x: hidden;
-      @include mat-elevation(2);
 
-      &.headerFixed {
-        position: fixed;
-      }
 
-      .left, .right {
-        display: inline-flex;
-        width: 100%;
-        align-items: center;
-        padding: 0 1em;
-      }
-      .right {
-        justify-content: flex-end;
-        .userImage {
-          margin-left: 1em;
-          width: 3em;
-          height: 3em;
-          border-radius: 1.5em;
-          background: #e6e6e6;
-          background-size: cover;
-          background-position: center;
+  &.pushMenu {
+    nav {
+    transition: .35s;
+    overflow: hidden;
+    position: fixed;
+    width: 300px;
+    transform: translateX(-300px);
+
+    &.menuOpen {
+      transition: .35s;
+      transform: translateX(0);
+      overflow: auto;
+    }
+  }
+}
+
+  &.overlayMenu{
+    @media screen and(min-width: 720px ){
+      grid-template-columns: 0 1fr;
+      transition: .35s;
+
+      &.menuOpen {
+        grid-template-columns: 0 1fr;
+        transition: .35s;
+        main {
+          transition: .35s;
+          filter: brightness(80%);
         }
-      }
     }
     nav {
-      grid-area: nav;
-      height: 100vh;
-      background: #474747;
-      z-index: 1;
-    }
-
-    &.pushMenu {
-      nav {
       transition: .35s;
       overflow: hidden;
       position: fixed;
-      width: 300px;
       transform: translateX(-300px);
+      box-shadow: none;
 
       &.menuOpen {
         transition: .35s;
+        width: 300px;
         transform: translateX(0);
+        @include mat-elevation(4);
         overflow: auto;
       }
     }
-}
-
-    &.overlayMenu{
-      @media screen and(min-width: 720px ){
-        grid-template-columns: 0 1fr;
-        transition: .35s;
-
-        &.menuOpen {
-          grid-template-columns: 0 1fr;
-          transition: .35s;
-          main {
-            transition: .35s;
-            filter: brightness(80%);
-          }
-      }
-      nav {
-        transition: .35s;
-        overflow: hidden;
-        position: fixed;
-        transform: translateX(-300px);
-        box-shadow: none;
-
-        &.menuOpen {
-          transition: .35s;
-          width: 300px;
-          transform: translateX(0);
-          @include mat-elevation(4);
-          overflow: auto;
-        }
-      }
-    }
-  }
-
-    main {
-      grid-area: main;
-      transition: .35s;
-      filter: none;
-      padding: 1em;
-    }
-    footer {
-      grid-area: footer;
-      background: mat-color($mat-grey, 800);
-      @include mat-elevation(2);
-      height: 5em;
-    }
-}
-
-.menuButton {
-  background: none;
-  border: none;
-  height: 32px;
-  width: 32px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: column;
-  margin: 4px;
-  z-index: 2;
-  position: relative;
-  margin: 0 1em;
-
-  .bar {
-    height: 4px;
-    width: 32px;
-    margin: 2px 0;
-    background: #fff;
-    border-radius: 3px;
-  }
-
-
-  &.menuOpen {
-    .bar {
-      position: absolute;
-      &.firstBar {
-        transition: 0.8s;
-        transform: translatex(-10px) translateY(6px) rotate(40deg);
-
-        width: 22px;
-      }
-      &.secondBar {
-        transition: 0.6s;
-      }
-      &.thirdBar {
-        transition: 0.6s;
-        transform: translatex(-10px) translateY(-6px) rotate(-40deg);
-        width: 22px;
-      }
-    }
-
   }
 }
 
-.menu {
-  display: grid;
-  height: 100%;
-  grid-template-rows: 5em 1fr 5em;
-  .top {
-    height: 3em;
-    background: mat-color($mat-grey, 800);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  app-header {
+    grid-area: header;
+    z-index: 1;
+  }
+  app-sidebar {
+    grid-area: nav;
+    z-index: 1;
+  }
+  app-footer {
+    grid-area: footer;
+  }
+
+  main {
+    grid-area: main;
+    transition: .35s;
+    filter: none;
     padding: 1em;
-  }
-  .content {
-    height: auto;
-    align-self: flex-start;
-  }
+    z-index: 0;
 
-  .bottom {
-    align-self: flex-end;
-    padding: 1em;
-    position: relative;
-    .list {
-      max-height: 0;
-      transition: 1s;
-      overflow: hidden;
-    }
-
-    &:hover {
-      .list {
-        max-height: 50vh;
-        height: min-content;
-        transition: .5s;
-      }
-    }
-  }
-
-  &.settingsOpen {
-    grid-template-rows: 5em 1fr auto;
-    .bottom {
-      .list {
-        max-height: 50vh;
-        height: min-content;
-        transition: .5s;
-      }
-    }
   }
 }

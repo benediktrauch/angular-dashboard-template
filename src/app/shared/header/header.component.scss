@@ -6,6 +6,7 @@ header {
   background: mat-color($mat-grey, 900);
   display: inline-flex;
   width: 100%;
+  transition: .35s;
   justify-content: space-between;
   overflow-x: hidden;
   @include mat-elevation(2);
@@ -16,9 +17,12 @@ header {
 
   .left, .right {
     display: inline-flex;
-    width: 100%;
+    width: auto;
     align-items: center;
     padding: 0 1em;
+  }
+  .left {
+
   }
   .right {
     justify-content: flex-end;
@@ -37,13 +41,19 @@ header {
   }
 
   &.pushMenu {
-  &.menuOpen {
+
+
+    &.menuOpen {
+      // right: 0;
+      // width: 100%;
+      width: calc(100% - 300px);
+      transition: .35s;
+
       &.headerFixed {
-        right: 0;
-        width: calc(100% - 300px);
+        // width: calc(100% - 300px);
       }
     }
-    }
+  }
 }
 
 .menuButton {

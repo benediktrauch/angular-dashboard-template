@@ -7,12 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'template';
+
   headerFixed = true;
   menuOpen = true;
-  pushMenu = true;
-  overlayMenu = false;
+  pushMenu = false;
+  overlayMenu = true;
   settingsOpen = false;
-
 
   toggleMenuStyle() {
     this.pushMenu = !this.pushMenu;
@@ -22,10 +22,4 @@ export class AppComponent {
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
   }
-
-
-  toggleSettings() {
-    this.settingsOpen = !this.settingsOpen;
-  }
-
 }

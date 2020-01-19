@@ -1,0 +1,106 @@
+@import '~src/styles';
+
+nav {
+  grid-area: nav;
+  height: 100vh;
+  background: #474747;
+  z-index: 1;
+
+  &.pushMenu {
+
+    transition: .35s;
+    overflow: hidden;
+    position: fixed;
+    width: 300px;
+    transform: translateX(-300px);
+
+    &.menuOpen {
+      transition: .35s;
+      transform: translateX(0);
+      overflow: auto;
+    }
+  }
+
+  &.overlayMenu{
+    @media screen and(min-width: 720px ){
+      grid-template-columns: 0 1fr;
+      transition: .35s;
+
+      &.menuOpen {
+        grid-template-columns: 0 1fr;
+        transition: .35s;
+        main {
+          transition: .35s;
+          filter: brightness(80%);
+        }
+    }
+      transition: .35s;
+      overflow: hidden;
+      position: fixed;
+      transform: translateX(-300px);
+      box-shadow: none;
+
+      &.menuOpen {
+        transition: .35s;
+        width: 300px;
+        transform: translateX(0);
+        @include mat-elevation(4);
+        overflow: auto;
+      }
+    }
+}
+}
+
+
+.menu {
+  display: grid;
+  height: 100%;
+  grid-template-rows: 5em 1fr 5em;
+  .top {
+    height: 3em;
+    background: mat-color($mat-grey, 800);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em;
+  }
+  .content {
+    height: auto;
+    align-self: flex-start;
+  }
+
+  .bottom {
+    align-self: flex-end;
+    padding: 1em;
+    position: relative;
+    .list {
+      max-height: 0;
+      transition: 1s;
+      overflow: hidden;
+    }
+
+    &:hover {
+      .list {
+        max-height: 50vh;
+        height: min-content;
+        transition: .5s;
+      }
+    }
+  }
+
+  &.settingsOpen {
+    grid-template-rows: 5em 1fr auto;
+    .bottom {
+      .list {
+        max-height: 50vh;
+        height: min-content;
+        transition: .5s;
+      }
+    }
+  }
+}
+
+.pinMenu {
+  background: none;
+  border: none;
+}

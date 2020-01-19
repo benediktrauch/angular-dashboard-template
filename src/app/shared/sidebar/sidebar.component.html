@@ -1,0 +1,34 @@
+<nav [ngClass]="{menuOpen: menuOpen, pushMenu: pushMenu, overlayMenu: overlayMenu}">
+  <div class="menu" [ngClass]="{settingsOpen: settingsOpen}">
+    <div class="top">
+      <button *ngIf="menuOpen" class="menuButton" [ngClass]="{menuOpen: menuOpen}" (click)="_toggleMenu()">
+        <img [src]="menuOpen ? 'assets/icons/menu_open-24px.svg' : 'assets/icons/menu-24px.svg'" alt="menu icon">
+      </button>
+      <div></div>
+      <!-- <input type="checkbox" name="pinMenu" id="pinMenu" [value]="pushMenu" > -->
+      <button (click)="_toggleMenuStyle()" class="pinMenu">
+        <img [src]="pushMenu ? 'assets/icons/lock-24px.svg' : 'assets/icons/lock_open-24px.svg'" alt="fix menu">
+      </button>
+    </div>
+    <div class="content">
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+    </div>
+    <div class="bottom">
+      <span class="button" (click)="_toggleSettings()">Settings</span>
+      <div class="list">
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
