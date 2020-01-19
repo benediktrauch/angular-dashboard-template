@@ -5,4 +5,22 @@ footer {
   background: mat-color($mat-grey, 800);
   @include mat-elevation(2);
   height: 5em;
+
+  .container {
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+    @include centered;
+
+
+  .github {
+    margin: .5em;
+        @include centered;
+        justify-content: space-between;
+span {
+  margin: 0 1em;
+}
+  }
+}
+
 }

@@ -57,9 +57,10 @@
       &.menuOpen {
         grid-template-columns: 0 1fr;
         transition: .35s;
+
         main {
           transition: .35s;
-          filter: brightness(80%);
+          filter: brightness(65%) blur(2px);
         }
     }
     nav {
