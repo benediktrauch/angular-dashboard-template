@@ -1,1 +1,102 @@
 /* You can add global styles to this file, and also import other style files */
+@import './theme/variables';
+@import './theme/palette';
+@import './theme/theming';
+@import './theme/mixins';
+@import './theme/elevation';
+
+$primary: mat-palette($mat-indigo);
+$accent:  mat-palette($mat-pink, A200, A100, A400);
+$theme: mat-light-theme($primary, $accent);
+
+
+$primary-color: #333;
+
+@mixin transform($property) {
+  transform: $property;
+}
+
+@mixin centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  @include transform(rotate(30deg));
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background: $primary-color;
+  color: #fff;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+
+
+// .inputContainer {
+//   display: block;
+//   position: relative;
+//   padding: 8x 0 0;
+//   label {
+//     position: absolute;
+//     top: 50%;
+//     left: 12px;
+//     transition: .25s;
+//   }
+//   input {
+//     background: none;
+//     border: 1px solid white;
+//   border-radius: 5px;
+//   padding: .75em 1em;
+//   color:white;
+//   &:focus {
+//     + .input-label {
+//       top: -12px;
+//       transition: .25s;
+//     }
+//   }
+//   }
+// }
+
+.widg-input {
+  display: flex;
+  position: relative;
+  padding: 8x 0 0;
+  .input-label {
+    position: absolute;
+    top: 14px;
+    left: 12px;
+    transition: .25s;
+    // order: -1;
+    background: mat-color($mat-grey, 900);
+    font-size: 1em;
+    padding: 0 6px;
+    opacity: .8;
+    cursor: text;
+  }
+  .input {
+    background: none;
+    border: 1px solid white;
+    height: 24px;
+    border-radius: 5px;
+    padding: .75em 1em;
+    order: 0;
+    color:white;
+    &:focus {
+      box-shadow: 0 0 1px 2px rgba(200, 200, 200, 0.6);
+
+      + .input-label {
+        top: -8px;
+        font-size: .7em;
+        transition: .25s;
+        font-weight: bolder;
+        opacity: 1;
+      }
+    }
+  }
+}
