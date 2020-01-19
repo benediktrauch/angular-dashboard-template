@@ -122,6 +122,13 @@
               "devServerTarget": "template:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "https://benediktrauch.github.io/angular-dashboard-template/",
+            "name": "Benedikt Rauch"
+          }
         }
       }
     }
