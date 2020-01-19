@@ -19,7 +19,9 @@
       </section>
     </div>
     <span>
-      Hello, User!
+      Hello,
+      <a routerLink="user">{{user?.name}}</a>
+      !
     </span>
     <span class="userImage" alt="profileImage"
       [ngStyle]="{'background-image': 'url(https://placeimg.com/72/72/any)'}"></span>

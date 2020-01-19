@@ -9,6 +9,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FooterComponent } from './shared/footer/footer.component';
     HeaderComponent,
     SidebarComponent,
     PageNotFoundComponent,
-    FooterComponent
+    FooterComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

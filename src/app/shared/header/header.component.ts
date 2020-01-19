@@ -25,6 +25,10 @@ export class HeaderComponent implements OnInit {
 
   companyName = 'ninety:6';
 
+  user = {
+    name: 'User'
+  };
+
   name = new FormControl('');
 
   constructor() { }

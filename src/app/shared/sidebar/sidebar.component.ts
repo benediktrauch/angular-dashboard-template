@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ViewChild, Output, EventEmitter, ElementRef, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -17,9 +18,17 @@ export class SidebarComponent implements OnInit {
   @Output() toggleMenu = new EventEmitter<boolean>();
   @Output() toggleMenuStyle = new EventEmitter<boolean>();
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    this.router.events.subscribe((event) => {
+      console.log(event);
+      if (this.overlayMenu && this.menuOpen) {
+        // this._toggleMenu();
+
+        this.toggleMenu.emit(false);
+      }
+    });
   }
 
   _toggleSettings() {
