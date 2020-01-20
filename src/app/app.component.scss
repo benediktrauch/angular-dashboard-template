@@ -1,4 +1,7 @@
-@import '~src/styles';
+@import "~src/styles";
+
+$lgtb: 5em;
+$smtb: 3em;
 
 .app-wrapper {
   min-height: 100vh;
@@ -9,77 +12,97 @@
     "nav"
     "main"
     "footer";
-    grid-template-columns: 1fr;
-    grid-template-rows: 5em auto auto 5em;
+  grid-template-columns: 1fr;
+  grid-template-rows: $lgtb auto auto $lgtb;
 
-    @media screen and(min-width: 720px ){
-      grid-template-areas:
+  @include breakpoint(xs) {
+    grid-template-rows: $smtb auto auto $smtb;
+  }
+
+  @include breakpoint(md) {
+    grid-template-areas:
       "nav header"
       "nav main"
       "nav footer";
-      grid-template-columns: 0 1fr;
-      grid-template-rows: 5em auto 5em;
-      transition: .35s;
+    grid-template-columns: 0 1fr;
+    grid-template-rows: $lgtb auto $lgtb;
+    @include breakpoint(xs) {
+      grid-template-rows: $smtb auto $smtb;
+    }
+    transition: 0.35s;
 
-      &.menuOpen {
-        grid-template-areas:
+    &.menuOpen {
+      grid-template-areas:
         "nav header"
         "nav main"
         "nav footer";
-        grid-template-columns: 300px 1fr;
-        grid-template-rows: 5em auto 5em;
-        transition: .35s;
+      grid-template-columns: 300px 1fr;
+      grid-template-rows: $lgtb auto $lgtb;
+      @include breakpoint(xs) {
+        grid-template-rows: $smtb auto $smtb;
+      }
+      transition: 0.35s;
     }
   }
-
 
   &.pushMenu {
     nav {
-    transition: .35s;
-    overflow: hidden;
-    position: fixed;
-    width: 300px;
-    transform: translateX(-300px);
-
-    &.menuOpen {
-      transition: .35s;
-      transform: translateX(0);
-      overflow: auto;
-    }
-  }
-}
-
-  &.overlayMenu{
-    @media screen and(min-width: 720px ){
-      grid-template-columns: 0 1fr;
-      transition: .35s;
-
-      &.menuOpen {
-        grid-template-columns: 0 1fr;
-        transition: .35s;
-
-        main {
-          transition: .35s;
-          filter: brightness(65%) blur(2px);
-        }
-    }
-    nav {
-      transition: .35s;
+      transition: 0.35s;
       overflow: hidden;
       position: fixed;
+      width: 300px;
       transform: translateX(-300px);
-      box-shadow: none;
 
       &.menuOpen {
-        transition: .35s;
-        width: 300px;
+        transition: 0.35s;
         transform: translateX(0);
-        @include mat-elevation(4);
         overflow: auto;
       }
     }
+
+    &.menuOpen {
+      main {
+        transition: 0.35s;
+        filter: brightness(65%) blur(2px);
+
+        @include breakpoint(md) {
+          filter: none;
+        }
+      }
+    }
   }
-}
+
+  &.overlayMenu {
+    @include breakpoint(md) {
+      grid-template-columns: 0 1fr;
+      transition: 0.35s;
+
+      &.menuOpen {
+        grid-template-columns: 0 1fr;
+        transition: 0.35s;
+
+        main {
+          transition: 0.35s;
+          filter: brightness(65%) blur(2px);
+        }
+      }
+      nav {
+        transition: 0.35s;
+        overflow: hidden;
+        position: fixed;
+        transform: translateX(-300px);
+        box-shadow: none;
+
+        &.menuOpen {
+          transition: 0.35s;
+          width: 300px;
+          transform: translateX(0);
+          @include mat-elevation(4);
+          overflow: auto;
+        }
+      }
+    }
+  }
 
   app-header {
     grid-area: header;
@@ -95,10 +118,9 @@
 
   main {
     grid-area: main;
-    transition: .35s;
+    transition: 0.35s;
     filter: none;
     padding: 1em;
     z-index: 0;
-
   }
 }

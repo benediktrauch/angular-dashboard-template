@@ -1,12 +1,18 @@
-@import '~src/styles';
+@import "~src/styles";
+
+$lgtb: 5em;
+$smtb: 3em;
 
 header {
   grid-area: header;
-  height: 5em;
+  height: $lgtb;
+  @include breakpoint(xs) {
+    height: $smtb;
+  }
   background: mat-color($mat-grey, 900);
   display: inline-flex;
   width: 100%;
-  transition: .35s;
+  transition: 0.35s;
   justify-content: space-between;
   overflow-x: hidden;
   @include mat-elevation(2);
@@ -15,39 +21,61 @@ header {
     position: fixed;
   }
 
-  .left, .right {
+  .left,
+  .right {
     display: inline-flex;
     width: auto;
     align-items: center;
-    padding: 0 1em;
+
+    padding: 0 0.35em;
+    @include breakpoint(sm) {
+      padding: 0 1em;
+    }
   }
   .left {
-
   }
   .right {
     justify-content: flex-end;
     .userImage {
-      margin-left: 1em;
-      width: 3em;
-      height: 3em;
-      border-radius: 1.5em;
-      background: #e6e6e6;
-      background-size: cover;
-      background-position: center;
+      display: none;
+      @include breakpoint(md) {
+        display: initial;
+        margin-left: 1em;
+        width: 3em;
+        height: 3em;
+        border-radius: 1.5em;
+        background: #e6e6e6;
+        background-size: cover;
+        background-position: center;
+      }
     }
+
     .actions {
-      margin: 0 1em;
+      display: none;
+      @include breakpoint(md) {
+        margin: 0 1em;
+        display: initial;
+        .input {
+          width: 7em;
+        }
+      }
+      @include breakpoint(lg) {
+        .input {
+          width: 12em;
+        }
+      }
     }
   }
 
   &.pushMenu {
-
-
     &.menuOpen {
       // right: 0;
       // width: 100%;
-      width: calc(100% - 300px);
-      transition: .35s;
+      @include breakpoint(md) {
+        width: calc(100% - 300px);
+      }
+
+      transition: 0.35s;
 
       &.headerFixed {
         // width: calc(100% - 300px);
@@ -68,7 +96,10 @@ header {
   margin: 4px;
   z-index: 2;
   position: relative;
-  margin: 0 1em;
+  margin: 0 0.35m;
+  @include breakpoint(sm) {
+    margin: 0 1em;
+  }
 
   .bar {
     height: 4px;
@@ -78,25 +109,10 @@ header {
     border-radius: 3px;
   }
 
-
   &.menuOpen {
-    .bar {
-      position: absolute;
-      &.firstBar {
-        transition: 0.8s;
-        transform: translatex(-10px) translateY(6px) rotate(40deg);
-
-        width: 22px;
-      }
-      &.secondBar {
-        transition: 0.6s;
-      }
-      &.thirdBar {
-        transition: 0.6s;
-        transform: translatex(-10px) translateY(-6px) rotate(-40deg);
-        width: 22px;
-      }
+    display: flex;
+    @include breakpoint(md) {
+      display: none;
     }
   }
 }
-

@@ -1,14 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
-@import './theme/variables';
-@import './theme/palette';
-@import './theme/theming';
-@import './theme/mixins';
-@import './theme/elevation';
+@import "./theme/variables";
+@import "./theme/palette";
+@import "./theme/theming";
+@import "./theme/mixins";
+@import "./theme/elevation";
 
 $primary: mat-palette($mat-indigo);
-$accent:  mat-palette($mat-lime, A200, A100, A400);
+$accent: mat-palette($mat-lime, A200, A100, A400);
 $theme: mat-light-theme($primary, $accent);
-
 
 $primary-color: #333;
 
@@ -26,13 +25,54 @@ $primary-color: #333;
   @include transform(rotate(30deg));
 }
 
-
 body {
   margin: 0;
   padding: 0;
   background: $primary-color;
   color: #fff;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+/*
+
+.text-center { text-align: center }
+
+@media (min-width: 640px) {
+  .tablet\:text-center { text-align: center }
+}
+
+@media (min-width: 1024px) {
+  .laptop\:text-center { text-align: center }
+}
+
+@media (min-width: 1280px) {
+  .desktop\:text-center { text-align: center }
+}
+
+*/
+
+@mixin breakpoint($point) {
+  @if $point == xl {
+    @media screen and (min-width: 70em) {
+      @content;
+    }
+  } @else if $point == lg {
+    @media screen and (min-width: 64em) {
+      @content;
+    }
+  } @else if $point == md {
+    @media screen and (min-width: 50em) {
+      @content;
+    }
+  } @else if $point == sm {
+    @media screen and (min-width: 37.5em) {
+      @content;
+    }
+  } @else if $point == xs {
+    @media screen and (max-width: 37.5em) {
+      @content;
+    }
+  }
 }
 
 a {
@@ -65,7 +105,6 @@ a {
   //   border-radius: 3px;
   // }
 
-
   // &.menuOpen {
   //   .bar {
   //     position: absolute;
@@ -96,12 +135,12 @@ a {
     position: absolute;
     top: 14px;
     left: 12px;
-    transition: .25s;
+    transition: 0.25s;
     // order: -1;
     background: mat-color($mat-grey, 900);
     font-size: 1em;
     padding: 0 6px;
-    opacity: .8;
+    opacity: 0.8;
     cursor: text;
   }
   .input {
@@ -109,19 +148,28 @@ a {
     border: 1px solid white;
     height: 24px;
     border-radius: 5px;
-    padding: .75em 1em;
+    padding: 0.75em 1em;
     order: 0;
-    color:white;
+    color: white;
     &:focus {
       box-shadow: 0 0 1px 2px rgba(200, 200, 200, 0.6);
 
       + .input-label {
         top: -8px;
-        font-size: .7em;
-        transition: .25s;
+        font-size: 0.7em;
+        transition: 0.25s;
         font-weight: bolder;
         opacity: 1;
       }
     }
   }
+}
+
+button {
+  border: none;
+  background: $primary-color;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0.45em 1.15em;
+  text-transform: uppercase;
 }

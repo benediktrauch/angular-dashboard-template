@@ -1,10 +1,6 @@
 <header [ngClass]="{headerFixed: headerFixed, pushMenu: pushMenu, menuOpen: menuOpen}">
   <div class="left">
-    <button class="menuButton" *ngIf="!menuOpen" [ngClass]="{menuOpen: menuOpen}" (click)="_toggleMenu()">
-      <!-- <span class="bar firstBar"></span>
-      <span class="bar secondBar"></span>
-      src/assets/icons/menu-24px.svg
-      <span class="bar thirdBar"></span> -->
+    <button class="menuButton" [ngClass]="{menuOpen: menuOpen}" (click)="_toggleMenu()">
       <img [src]="menuOpen ? 'assets/icons/menu_open-24px.svg' : 'assets/icons/menu-24px.svg'" alt="">
     </button>
     <div class="company">
@@ -15,7 +11,7 @@
     <div class="actions">
       <section class="widg-input">
         <input type="text" class="input" name="searchField" #searchBar>
-        <label for="searchField" class="input-label" (click)="_focusSearch()">Suche [strg]+[7]</label>
+        <label for="searchField" class="input-label" (click)="_focusSearch()">Suche</label>
       </section>
     </div>
     <span>

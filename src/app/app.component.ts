@@ -10,8 +10,8 @@ export class AppComponent {
 
   headerFixed = true;
   menuOpen = true;
-  pushMenu = false;
-  overlayMenu = true;
+  pushMenu = true;
+  overlayMenu = false;
   settingsOpen = false;
 
   toggleMenuStyle() {

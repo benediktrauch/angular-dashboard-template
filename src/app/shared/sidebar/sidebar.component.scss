@@ -1,4 +1,7 @@
-@import '~src/styles';
+@import "~src/styles";
+
+$lgtb: 5em;
+$smtb: 3em;
 
 nav {
   grid-area: nav;
@@ -7,66 +10,74 @@ nav {
   z-index: 1;
 
   &.pushMenu {
-
-    transition: .35s;
+    transition: 0.35s;
     overflow: hidden;
     position: fixed;
     width: 300px;
     transform: translateX(-300px);
 
     &.menuOpen {
-      transition: .35s;
+      transition: 0.35s;
       transform: translateX(0);
       overflow: auto;
+      @include breakpoint(xs) {
+        width: 100vw;
+      }
     }
   }
 
-  &.overlayMenu{
-    @media screen and(min-width: 720px ){
+  &.overlayMenu {
+    @include breakpoint(md) {
       grid-template-columns: 0 1fr;
-      transition: .35s;
+      transition: 0.35s;
 
       &.menuOpen {
         grid-template-columns: 0 1fr;
-        transition: .35s;
+        transition: 0.35s;
         main {
-          transition: .35s;
+          transition: 0.35s;
           filter: brightness(80%);
         }
-    }
-      transition: .35s;
+      }
+      transition: 0.35s;
       overflow: hidden;
       position: fixed;
       transform: translateX(-300px);
       box-shadow: none;
 
       &.menuOpen {
-        transition: .35s;
+        transition: 0.35s;
         width: 300px;
         transform: translateX(0);
         @include mat-elevation(4);
         overflow: auto;
       }
     }
+  }
 }
-}
-
 
 .menu {
   display: grid;
   height: 100%;
-  grid-template-rows: 5em 1fr 5em;
+  grid-template-rows: $lgtb 1fr $lgtb;
+  @include breakpoint(xs) {
+    grid-template-rows: $smtb 1fr $smtb;
+  }
   .top {
-    height: 3em;
-    background: mat-color($mat-grey, 800);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1em;
+    display: none;
+    @include breakpoint(md) {
+      height: 3em;
+      background: mat-color($mat-grey, 800);
+      align-items: center;
+      justify-content: space-between;
+      padding: 1em;
+      display: flex;
+    }
   }
   .content {
     height: auto;
     align-self: flex-start;
+    padding: 1em;
   }
 
   .bottom {
@@ -83,18 +94,21 @@ nav {
       .list {
         max-height: 50vh;
         height: min-content;
-        transition: .5s;
+        transition: 0.5s;
       }
     }
   }
 
   &.settingsOpen {
-    grid-template-rows: 5em 1fr auto;
+    grid-template-rows: $lgtb 1fr auto;
+    @include breakpoint(xs) {
+      grid-template-rows: $smtb 1fr auto;
+    }
     .bottom {
       .list {
         max-height: 50vh;
         height: min-content;
-        transition: .5s;
+        transition: 0.5s;
       }
     }
   }

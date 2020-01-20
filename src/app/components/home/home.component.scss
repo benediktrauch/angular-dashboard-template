@@ -1,16 +1,111 @@
-@import '~src/styles';
+@import "~src/styles";
 
 .wrapper {
-  display: flex;
-  flex-wrap: wrap;
+  .dashboardWrapper {
+    display: grid;
+    gap: 1em 1em;
+    grid-auto-flow: row dense;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: minmax(10em, 1fr);
+    @include breakpoint(sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include breakpoint(md) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include breakpoint(lg) {
+      grid-template-columns: repeat(4, 1fr);
+    }
 
-  section {
-    width: 100%;
-    height: 33vh;
-    @include centered;
-    flex-wrap: wrap;
-    p {
-      font-size: 1.3em;
+    .dashboardItem {
+      border-radius: 4px;
+      @include mat-elevation(1);
+      background: mat-color($mat-grey, 900);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+
+      .top {
+        border-bottom: 1px solid mat-color($mat-grey, 700);
+        background: mat-color($mat-grey, 800);
+        border-radius: 4px 4px 0 0;
+        margin-bottom: 1em;
+        padding: 1em 1em 0.5em;
+        font-size: 1.05em;
+      }
+      .body {
+        padding: 0.35em 1em 1em;
+      }
+
+      .bottom {
+        display: inline-flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.35em;
+      }
+
+      &.x1y1 {
+        grid-column-end: span 1;
+        grid-row-end: span 1;
+      }
+      &.x2y1 {
+        grid-column-end: span 1;
+        @include breakpoint(sm) {
+          grid-column-end: span 2;
+        }
+        grid-row-end: span 1;
+      }
+      &.x3y1 {
+        grid-column-end: span 1;
+        @include breakpoint(sm) {
+          grid-column-end: span 2;
+        }
+        @include breakpoint(md) {
+          grid-column-end: span 3;
+        }
+        grid-row-end: span 1;
+      }
+      &.x1y2 {
+        grid-column-end: span 1;
+        grid-row-end: span 2;
+      }
+      &.x2y2 {
+        grid-column-end: span 1;
+        @include breakpoint(sm) {
+          grid-column-end: span 2;
+        }
+        grid-row-end: span 2;
+      }
+      &.x3y2 {
+        grid-column-end: span 1;
+        @include breakpoint(sm) {
+          grid-column-end: span 2;
+        }
+        @include breakpoint(md) {
+          grid-column-end: span 3;
+        }
+        grid-row-end: span 2;
+      }
+      &.x1y3 {
+        grid-column-end: span 1;
+        grid-row-end: span 3;
+      }
+      &.x2y3 {
+        grid-column-end: span 1;
+        @include breakpoint(sm) {
+          grid-column-end: span 2;
+        }
+        grid-row-end: span 3;
+      }
+      &.x3y3 {
+        grid-column-end: span 1;
+        @include breakpoint(sm) {
+          grid-column-end: span 2;
+        }
+        @include breakpoint(md) {
+          grid-column-end: span 3;
+        }
+        grid-row-end: span 3;
+      }
     }
   }
 }
