@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="406"
+   height="230"
+   viewBox="0 0 406.00001 230"
+   id="svg8">
+
+    <g
+       id="g4548"
+       transform="translate(-72.991847,74.63208)">
+      <path
+         sodipodi:nodetypes="csccccc"
+         inkscape:connector-curvature="0"
+         d="m 255.97186,708.71071 c 0,46.57917 -37.59913,84.33905 -83.98002,84.33905 -46.38089,0 -83.980021,-37.75988 -83.980021,-84.33905 M 255.97187,589.23039 v 119.48032 m -167.960047,0 V 589.23039"
+         style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:20.03794098;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path4520" />
+      <path
+         sodipodi:nodetypes="ccccccc"
+         inkscape:connector-curvature="0"
+         id="rect4541"
+         d="m 296.52699,589.49751 h 167.14414 l -63.93067,101.57126 63.93067,101.57117 H 296.52699 l 63.93066,-101.57122 z"
+         style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:20.85757065;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+</svg>
