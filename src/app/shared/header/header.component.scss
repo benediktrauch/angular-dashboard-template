@@ -9,13 +9,13 @@ header {
   @include breakpoint(xs) {
     height: $smtb;
   }
-  background: mat-color($mat-grey, 900);
   display: inline-flex;
   width: 100%;
   transition: 0.35s;
   justify-content: space-between;
   overflow-x: hidden;
   @include mat-elevation(2);
+  background: $background-color-el1;
 
   &.headerFixed {
     position: fixed;

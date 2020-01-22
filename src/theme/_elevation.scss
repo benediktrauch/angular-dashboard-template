@@ -127,6 +127,43 @@
   );
 }
 
+@function _get-opacity-map($color, $opacity) {
+  $shadow-color: if(type-of($color) == color, rgba($color, $opacity * 0.12), $color);
+
+  // @return (
+  //   0: 'rgba(255,255,255, .00)',
+  //   1: 'rgba(255,255,255, .05)',
+  //   2: 'rgba(255,255,255, .07)',
+  //   3: 'rgba(255,255,255, .08)',
+  //   4: 'rgba(255,255,255, .09)',
+  //   5: 'rgba(255,255,255, .11)',
+  //   6: 'rgba(255,255,255, .12)',
+  //   7: 'rgba(255,255,255, .14)',
+  //   8: 'rgba(255,255,255, .15)',
+  //   9: 'rgba(255,255,255, .16)',
+  // );
+
+  @return (
+    0: if(type-of($color) == color, rgba($color, $opacity * 0.12), $color),
+  );
+}
+
+@function _get-opacity-map2($color) {
+
+  @return (
+    0: if(type-of($color) == color, rgba($color, .00), $color),
+    1: if(type-of($color) == color, rgba($color, .05), $color),
+    2: if(type-of($color) == color, rgba($color, .07), $color),
+    3: if(type-of($color) == color, rgba($color, .08), $color),
+    4: if(type-of($color) == color, rgba($color, .09), $color),
+    5: if(type-of($color) == color, rgba($color, .11), $color),
+    6: if(type-of($color) == color, rgba($color, .12), $color),
+    7: if(type-of($color) == color, rgba($color, .14), $color),
+    8: if(type-of($color) == color, rgba($color, .15), $color),
+    9: if(type-of($color) == color, rgba($color, .16), $color)
+  );
+}
+
 // The default duration value for elevation transitions.
 $mat-elevation-transition-duration: 280ms !default;
 
@@ -135,6 +172,10 @@ $mat-elevation-transition-timing-function: $mat-fast-out-slow-in-timing-function
 
 // The default color for elevation shadows.
 $mat-elevation-color: black !default;
+
+// The default color for elevation bg.
+// $mat-elevation-bg-color: rgba(255,255,255,.5) !default;
+$mat-elevation-bg-color: white !default;
 
 // The default opacity scaling value for elevation shadows.
 $mat-elevation-opacity: 1 !default;
@@ -155,6 +196,19 @@ $_mat-elevation-prefix: 'mat-elevation-z';
   box-shadow: #{map-get(_get-umbra-map($color, $opacity), $zValue)},
               #{map-get(_get-penumbra-map($color, $opacity), $zValue)},
               #{map-get(_get-ambient-map($color, $opacity), $zValue)};
+}
+
+
+//       @include mat-bg-elevation(2, mat-color($mat-red, 700));
+
+@mixin mat-bg-elevation($zValue, $color: $mat-elevation-bg-color, $opacity: $mat-elevation-opacity) {
+  @if type-of($zValue) != number or not unitless($zValue) {
+    @error '$zValue must be a unitless number';
+  }
+  @if $zValue < 0 or $zValue > 9 {
+    @error '$zValue must be between 0 and 9';
+  }
+  background: #{map-get(_get-opacity-map2($color), $zValue)};
 }
 
 @mixin _mat-theme-elevation($zValue, $theme, $opacity: $mat-elevation-opacity) {

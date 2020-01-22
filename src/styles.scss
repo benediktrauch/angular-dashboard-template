@@ -5,11 +5,29 @@
 @import "./theme/mixins";
 @import "./theme/elevation";
 
-$primary: mat-palette($mat-indigo);
-$accent: mat-palette($mat-lime, A200, A100, A400);
+$primary: mat-palette($mat-lime);
+$accent: mat-palette($mat-cyan, A200, A100, A400);
 $theme: mat-light-theme($primary, $accent);
 
-$primary-color: #333;
+
+$primary-color: mat-color($mat-lime, 200);
+$primary-contrast: $background-color;
+
+$primary-complementary: #a49cee;
+$primary-analog1: #eecd9c;
+$primary-analog2: #bdee9c;
+$primary-triade1: #9ceea4;
+$primary-triade2: #9ce6ee;
+
+$secondary-color: mat-color($mat-cyan, 200);
+$secondary-contrast: $background-color;
+
+$warning-color: mat-color($mat-red, 400);
+$warning-contrast: $background-color;
+
+$info-color: mat-color($mat-amber, 400);
+$info-contrast: $background-color;
+
 
 @mixin transform($property) {
   transform: $property;
@@ -28,7 +46,7 @@ $primary-color: #333;
 body {
   margin: 0;
   padding: 0;
-  background: $primary-color;
+  background: $background-color;
   color: #fff;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   box-sizing: border-box;
@@ -172,11 +190,89 @@ a {
   }
 }
 
+
 button {
   border: none;
   background: $primary-color;
-  color: #fff;
-  border-radius: 5px;
-  padding: 0.45em 1.15em;
+  color: $primary-contrast;
+  border-radius: 2em;
+  padding: 0.5em 1.5em;
   text-transform: uppercase;
+  transition: $short;
+  box-shadow: none;
+  font-weight: bolder;
+
+  &.icon-left {
+    padding-left: 1em;
+    .icon {
+      margin-right: .5em;
+    }
+  }
+  &.icon-right {
+    padding-right: 1em;
+    .icon {
+      margin-left: .5em;
+    }
+  }
+
+  &.outlined {
+    background: none;
+    border: 1px solid $primary-color;
+    color: $primary-color;
+    &:hover, &:active {
+      background: $primary-color;
+      color: $primary-contrast;
+    }
+  }
+
+  &.elevated {
+    @include mat-elevation(1);
+    transition: $short;
+  }
+
+  &:hover, &:active {
+    transition: $short;
+    background-color: lighten($primary-color, $amount: 4);
+    @include mat-elevation(1);
+    &.elevated {
+      @include mat-elevation(2);
+    }
+  }
+
+  &.secondary {
+    background: $secondary-color;
+    color: $secondary-contrast;
+    &:hover, &:active {
+      background-color: lighten($secondary-color, $amount: 4);
+      @include mat-elevation(1);
+      transition: $short;
+    }
+  }
+
+  &.info {
+    background: $info-color;
+    color: $info-contrast;
+    &:hover, &:active {
+      background-color: lighten($info-color, $amount: 4);
+      @include mat-elevation(1);
+      transition: $short;
+    }
+  }
+
+
+  &.warning {
+    background: $warning-color;
+    color: $warning-contrast;
+    &:hover, &:active {
+      background-color: lighten($warning-color, $amount: 4);
+      @include mat-elevation(1);
+      transition: $short;
+    }
+  }
+
+  &.icon-only {
+    &:hover, &:active {
+      background: none;
+    }
+  }
 }

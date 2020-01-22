@@ -12,7 +12,7 @@
     </svg>
   </div>
   <div class="center">
-    <h1></h1>
+    <a routerLink="auth/login">Login</a>
   </div>
   <div class="right">
     <div class="snippetMenuIcon" [ngClass]="{ active: menuOpen }" aria-label="Menu Button" role="button" type="button"
@@ -26,10 +26,10 @@
 <div class="menu" [ngClass]="{ active: menuOpen }">
   <ul class="menuList">
     <li class="listItem" (click)="scrollToElement(first)">
-      <a routerLink="user">User</a>
+      Positive UX
     </li>
     <li class="listItem" (click)="scrollToElement(second)">
-      <a routerLink="auth/login">Login</a>
+      Positive People
     </li>
     <li class="listItem" (click)="scrollToElement(third)">
       Positive Future

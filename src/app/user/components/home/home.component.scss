@@ -20,13 +20,13 @@
     .dashboardItem {
       border-radius: 4px;
       @include mat-elevation(1);
-      background: mat-color($mat-grey, 900);
+      @include mat-bg-elevation(2);
       display: grid;
       grid-template-rows: auto 1fr auto;
 
       .top {
         border-bottom: 1px solid mat-color($mat-grey, 700);
-        background: mat-color($mat-grey, 800);
+        @include mat-bg-elevation(2);
         border-radius: 4px 4px 0 0;
         margin-bottom: 1em;
         padding: 1em 1em 0.5em;

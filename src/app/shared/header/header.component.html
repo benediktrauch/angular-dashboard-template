@@ -1,6 +1,6 @@
 <header [ngClass]="{headerFixed: headerFixed, pushMenu: pushMenu, menuOpen: menuOpen}">
   <div class="left">
-    <button class="menuButton" [ngClass]="{menuOpen: menuOpen}" (click)="_toggleMenu()">
+    <button class="icon-only menuButton" [ngClass]="{menuOpen: menuOpen}" (click)="_toggleMenu()">
       <img [src]="menuOpen ? 'assets/icons/menu_open-24px.svg' : 'assets/icons/menu-24px.svg'" alt="">
     </button>
     <div class="company">
