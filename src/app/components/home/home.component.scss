@@ -1,111 +1,303 @@
-@import "~src/styles";
+@mixin transition {
+  @for $i from 1 through 4 {
+    &:nth-child(#{$i}) {
+      animation: slideIn 0.25s #{$i * 0.15}s forwards ease-in-out;
+    }
+  }
+}
 
-.wrapper {
-  .dashboardWrapper {
+@keyframes slideIn {
+  from {
+    transform: translate3d(30px, -15px, 0) scale3d(0.5, 0.5, 0.15);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+    opacity: 1;
+  }
+}
+
+
+
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  @media only screen and (min-width: 768px) {
+    grid-template-columns: 1fr 3fr 1fr;
+  }
+
+  height: 5em;
+  width: 100%;
+  max-width: 100vw;
+  #logo {
+    margin: 0.25em 0.5em;
+    height: 3em;
+  }
+
+  .left {
     display: grid;
-    gap: 1em 1em;
-    grid-auto-flow: row dense;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: minmax(10em, 1fr);
-    @include breakpoint(sm) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    @include breakpoint(md) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-    @include breakpoint(lg) {
-      grid-template-columns: repeat(4, 1fr);
-    }
+    justify-content: flex-start;
+    margin: 0 1em;
+  }
+  .right {
+    display: grid;
+    justify-content: flex-end;
+    column-gap: 1em;
+    margin: 0 1em;
 
-    .dashboardItem {
-      border-radius: 4px;
-      @include mat-elevation(1);
-      background: mat-color($mat-grey, 900);
-      display: grid;
-      grid-template-rows: auto 1fr auto;
+    .snippetMenuIcon {
+      cursor: pointer;
+      height: 32px;
+      width: 32px;
+      padding: 0;
+      border: none;
+      margin: 0;
+      position: relative;
 
-      .top {
-        border-bottom: 1px solid mat-color($mat-grey, 700);
-        background: mat-color($mat-grey, 800);
-        border-radius: 4px 4px 0 0;
-        margin-bottom: 1em;
-        padding: 1em 1em 0.5em;
-        font-size: 1.05em;
-      }
-      .body {
-        padding: 0.35em 1em 1em;
+      .snippetMenuiconBar {
+        width: 32px;
+        height: 2px;
+        background-color: #ffffff;
+        transition: 0.4s;
+        display: block;
+        position: absolute;
+        transition: 0.25s;
       }
 
-      .bottom {
-        display: inline-flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.35em;
+      .firstBar {
+        top: 35%;
+        left: 0;
       }
 
-      &.x1y1 {
-        grid-column-end: span 1;
-        grid-row-end: span 1;
+      .thirdBar {
+        top: 60%;
+        left: 0;
       }
-      &.x2y1 {
-        grid-column-end: span 1;
-        @include breakpoint(sm) {
-          grid-column-end: span 2;
+
+      &.active {
+        .firstBar {
+          top: 50%;
+          width: 24px;
+          transition: 0.25s;
+          transform: rotate(45deg);
+          left: 4px;
         }
-        grid-row-end: span 1;
-      }
-      &.x3y1 {
-        grid-column-end: span 1;
-        @include breakpoint(sm) {
-          grid-column-end: span 2;
+        .thirdBar {
+          top: 50%;
+          width: 24px;
+          transition: 0.25s;
+          transform: rotate(-45deg);
+          left: 4px;
         }
-        @include breakpoint(md) {
-          grid-column-end: span 3;
-        }
-        grid-row-end: span 1;
-      }
-      &.x1y2 {
-        grid-column-end: span 1;
-        grid-row-end: span 2;
-      }
-      &.x2y2 {
-        grid-column-end: span 1;
-        @include breakpoint(sm) {
-          grid-column-end: span 2;
-        }
-        grid-row-end: span 2;
-      }
-      &.x3y2 {
-        grid-column-end: span 1;
-        @include breakpoint(sm) {
-          grid-column-end: span 2;
-        }
-        @include breakpoint(md) {
-          grid-column-end: span 3;
-        }
-        grid-row-end: span 2;
-      }
-      &.x1y3 {
-        grid-column-end: span 1;
-        grid-row-end: span 3;
-      }
-      &.x2y3 {
-        grid-column-end: span 1;
-        @include breakpoint(sm) {
-          grid-column-end: span 2;
-        }
-        grid-row-end: span 3;
-      }
-      &.x3y3 {
-        grid-column-end: span 1;
-        @include breakpoint(sm) {
-          grid-column-end: span 2;
-        }
-        @include breakpoint(md) {
-          grid-column-end: span 3;
-        }
-        grid-row-end: span 3;
       }
     }
+  }
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 0vw;
+  height: 100vh;
+  z-index: 8;
+  transition: 0.25s;
+
+  .menuList {
+    display: none;
+    margin: 3em 0;
+
+    .listItem {
+      list-style: none;
+      font-size: 1.4em;
+      color: #fff;
+      margin: 1em 0;
+      transform: translateX(15px);
+      opacity: 0;
+    }
+  }
+
+  &.active {
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.75);
+    transition: 0.25s;
+    animation: blurOut 0s 0.2s forwards;
+    .menuList {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      flex-wrap: wrap;
+      flex-direction: column;
+      overflow: hidden;
+      .listItem {
+        @include transition;
+      }
+    }
+  }
+
+  @supports (backdrop-filter: blur(2em)) {
+    &.active {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+  @keyframes blurOut {
+    from {
+      backdrop-filter: none;
+    }
+    to {
+      backdrop-filter: blur(8px) brightness(80%);
+    }
+  }
+}
+
+#home {
+  display: grid;
+  scroll-snap-type: y mandatory;
+  height: 100%;
+}
+.section {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  display: grid;
+  grid-template-rows: 1fr min-content 1fr;
+  grid-template-columns: 100%;
+
+  justify-content: center;
+  align-items: center;
+  place-items: center;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+
+  &.first {
+    // animation: blurFilter 0.25s forwards;
+    background-color: #344467;
+    background-image: url(~/assets/images/first_high-res.jpg),
+      url(~/assets/images/first_low-res.jpg);
+  }
+  &.second {
+    // animation: blurFilter 0.25s forwards;
+    background-color: #000000;
+    background-image: url(~/assets/images/second_high-res.jpg),
+      url(~/assets/images/second_low-res.jpg);
+    min-height: 200vh;
+    grid-template-rows: auto 1fr max-content;
+    .body {
+      // position: relative;
+      min-height: 100vh;
+      width: 100%;
+      background-image: linear-gradient(#00000000, #000000, #000000, #000000);
+
+      .wrapper {
+        margin: 0 1em;
+
+        @media only screen and (min-width: 768px) {
+          margin: 0 5em;
+        }
+        color: #ffffff;
+        .cards {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          margin-bottom: 2em;
+
+          .card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 5em;
+            width: 100%;
+            font-size: 3em;
+            margin: 0 0.5em;
+          }
+          .item {
+            &--first {
+              border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+              background-image: linear-gradient(240deg, #0d1dad, #ff004c);
+            }
+            &--second {
+              border-radius: 56% 44% 12% 88% / 52% 50% 50% 48%;
+              background-image: linear-gradient(-35deg, #ae2366, #ffbc00);
+            }
+            &--third {
+              border-radius: 56% 44% 61% 39% / 27% 81% 19% 73%;
+              background-image: linear-gradient(110deg, #24ab4b, #3288a9);
+            }
+          }
+        }
+      }
+      // .background {
+      //   position: absolute;
+      //   background-image: linear-gradient(#00000000, #000000, #000000, #000000);
+      //   height: 100%;
+      //   width: 100%;
+      // }
+    }
+  }
+  &.third {
+    background-color: #0077ff;
+    background-image: url(~/assets/images/third_high-res.jpg),
+      url(~/assets/images/third_low-res.jpg);
+  }
+  &.info {
+    background-color: #000;
+    background-image: url(~/assets/images/fourth-high-res.jpg),
+      url(~/assets/images/fourth-low-res.jpg);
+  }
+  .refs {
+    padding: 2em 4em;
+    background-color: rgba(255, 255, 255, 0.75);
+  }
+  @supports (backdrop-filter: blur(2em)) {
+    .refs {
+      backdrop-filter: blur(8px) brightness(120%) saturate(150%);
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+  }
+  .content {
+    width: 100%;
+    @media only screen and (min-width: 768px) {
+      width: 60%;
+    }
+    h1 {
+      font-size: 3.5em;
+      padding: 0.4em;
+      text-align: center;
+      color: #fff;
+      border-top: 1px solid #fff;
+      border-bottom: 1px solid #fff;
+      backdrop-filter: blur(8px) brightness(80%) saturate(150%);
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+.scrollIndicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 1em;
+  background: #004ba0;
+}
+
+@keyframes blurFilter {
+  from {
+    filter: blur(2px);
+  }
+  to {
+    filter: none;
   }
 }

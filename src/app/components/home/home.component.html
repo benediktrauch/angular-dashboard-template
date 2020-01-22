@@ -1,106 +1,129 @@
-<div class="wrapper">
-  <h1>Here we go!!</h1>
-  <div class="dashboardWrapper">
-    <div class="dashboardItem x1y1">
-      <div class="top">text</div>
-      <div class="body">x1y1</div>
-      <div class="bottom">
-        <span class="text">123</span>
-        <button>go</button>
-      </div>
-    </div>
-    <div class="dashboardItem x1y1">
-      <div class="top">text</div>
-      <div class="body">x1y1</div>
-    </div>
-    <div class="dashboardItem x2y1">
-      <div class="top">text</div>
-      <div class="body">x2y1</div>
-    </div>
-    <div class="dashboardItem x3y1">
-      <div class="top">text</div>
-      <div class="body">x3y1</div>
-    </div>
-    <div class="dashboardItem x1y2">
-      <div class="top">text</div>
-      <div class="body">x1y2</div>
-    </div>
-    <div class="dashboardItem x2y2">
-      <div class="top">text</div>
-      <div class="body">x2y2</div>
-    </div>
-    <div class="dashboardItem x1y1">
-      <div class="top">text</div>
-      <div class="body">x1y1</div>
-    </div>
-    <div class="dashboardItem x1y2">
-      <div class="top">text</div>
-      <div class="body">x1y2</div>
-    </div>
-    <div class="dashboardItem x1y1">
-      <div class="top">text</div>
-      <div class="body">x1y1</div>
-      <div class="bottom">
-        <span class="text">123</span>
-        <button>go</button>
-      </div>
-    </div>
-    <div class="dashboardItem x3y2">
-      <div class="top">text</div>
-      <div class="body">x3y2</div>
-    </div>
-    <div class="dashboardItem x1y3">
-      <div class="top">text</div>
-      <div class="body">x1y3</div>
-    </div>
-    <div class="dashboardItem x1y1">
-      <div class="top">text</div>
-      <div class="body">x1y1</div>
-    </div>
-    <div class="dashboardItem x2y3">
-      <div class="top">text</div>
-      <div class="body">x2y3</div>
-      <div class="bottom">
-        <span class="text">123</span>
-        <button>go</button>
-      </div>
-    </div>
-    <div class="dashboardItem x1y2">
-      <div class="top">text</div>
-      <div class="body">x1y2</div>
-    </div>
-    <div class="dashboardItem x1y1">
-      <div class="top">text</div>
-      <div class="body">x1y1</div>
-    </div>
-    <div class="dashboardItem x1y1">
-      <div class="top">text</div>
-      <div class="body">x1y1</div>
-    </div>
-    <div class="dashboardItem x3y3">
-      <div class="top">text</div>
-      <div class="body">x3y3</div>
-    </div>
-    <div class="dashboardItem x1y1">
-      <div class="top">text</div>
-      <div class="body">x1y1</div>
-    </div>
-    <div class="dashboardItem x1y1">
-      <div class="top">text</div>
-      <div class="body">x1y1</div>
-      <div class="bottom">
-        <span class="text">123</span>
-        <button>go</button>
-      </div>
-    </div>
-    <div class="dashboardItem x1y2">
-      <div class="top">text</div>
-      <div class="body">x1y2</div>
-    </div>
-    <div class="dashboardItem x1y2">
-      <div class="top">text</div>
-      <div class="body">x1y2</div>
+<nav class="navigation">
+  <div class="left">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 406 230" id="logo">
+      <g id="group_1">
+        <path id="path_2"
+          d="M 182.98 132.642 C 182.98 179.221 145.381 216.981 99 216.981 C 52.619 216.981 15.02 179.221 15.02 132.642 M 182.98 13.162 L 182.98 132.642 M 15.02 132.642 L 15.02 13.162"
+          fill="none" stroke="#FFFFFF" stroke-width="20" stroke-linecap="round" />
+        <path id="path_3"
+          d="M 223.535 13.429 L 390.679 13.429 L 326.749 115 L 390.679 216.571 L 223.535 216.571 L 287.466 115 Z"
+          fill="none" stroke="#FFFFFF" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" />
+      </g>
+    </svg>
+  </div>
+  <div class="center">
+    <h1></h1>
+  </div>
+  <div class="right">
+    <div class="snippetMenuIcon" [ngClass]="{ active: menuOpen }" aria-label="Menu Button" role="button" type="button"
+      (click)="toggleMenu()">
+      <span class="snippetMenuiconBar firstBar" id="firstBar"></span>
+      <!-- <span class="snippetMenuiconBar secondBar" id="secondBar"></span> -->
+      <span class="snippetMenuiconBar thirdBar" id="thirdBar"></span>
     </div>
   </div>
-
+</nav>
+<div class="menu" [ngClass]="{ active: menuOpen }">
+  <ul class="menuList">
+    <li class="listItem" (click)="scrollToElement(first)">
+      <a routerLink="user">User</a>
+    </li>
+    <li class="listItem" (click)="scrollToElement(second)">
+      <a routerLink="auth/login">Login</a>
+    </li>
+    <li class="listItem" (click)="scrollToElement(third)">
+      Positive Future
+    </li>
+    <li class="listItem" (click)="scrollToElement(about)">
+      About
+    </li>
+  </ul>
 </div>
+
+<main id="home">
+  <span class="scrollIndicator"></span>
+  <section class="section first" [attr.id]="first" #first>
+    <span></span>
+    <div class="content">
+      <h1>Positive UX</h1>
+    </div>
+    <p class="refs">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis,
+      repellendus sapiente ipsa porro rem, ad est voluptatum hic et eveniet nam
+      earum perspiciatis molestias nisi consequatur. Asperiores dicta quibusdam
+      veniam!
+    </p>
+  </section>
+  <section class="section second" #second>
+    <span></span>
+    <div class="content">
+      <h1>Positive People</h1>
+    </div>
+    <div class="body">
+      <div class="wrapper">
+        <!-- <div class="cards">
+          <span class="card item--first">Mollitia</span>
+          <span class="card item--second">Animi</span>
+          <span class="card item--third">Nautus</span>
+        </div> -->
+        <h2>Asperiores dicta</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis
+          repellat architecto veniam dolore, maiores beatae provident cumque!
+          Suscipit, laudantium. A odit adipisci similique deleniti officia
+          beatae aperiam nisi, sapiente magnam. Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Mollitia earum culpa distinctio
+          voluptatibus incidunt fugit nulla, et perferendis alias minus modi
+          tempora ratione quis doloremque eius odio veritatis. Commodi, nam.
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus
+          cumque, reprehenderit atque ipsum optio aliquid sit debitis, eius
+          error dicta maiores similique eveniet reiciendis! Animi quo asperiores
+          ut cupiditate natus! Lorem ipsum dolor, sit amet consectetur
+          adipisicing elit. Vero eos maxime molestias inventore voluptates dicta
+          facilis provident rerum libero fuga vitae voluptatem adipisci quod a
+          ratione, dolores iure accusamus error.
+        </p>
+        <h2>Voluptatem</h2>
+        <p>
+          Distinctio necessitatibus vitae quod. In, officiis. Voluptatem veniam
+          sequi dolore, delectus ut officia reprehenderit optio cumque nesciunt
+          natus tempore earum ullam molestias. Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. At, distinctio assumenda accusantium
+          fugit pariatur vero adipisci minima fuga maxime alias? Consectetur quo
+          quod sint expedita voluptate, laudantium fugiat quae aliquam?
+        </p>
+        <h2>Adipisci Minima</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore minus
+          autem similique vero harum quaerat est, suscipit soluta delectus cum
+          magnam eum! Aut eum velit voluptas nisi error laudantium quidem. Lorem
+          ipsum dolor sit amet consectetur adipisicing elit. Libero ipsum
+          delectus eligendi est qui corporis adipisci quod accusamus expedita
+          at, officia ratione tempora sapiente reiciendis labore consequuntur?
+          Earum, officia provident? Lorem ipsum, dolor sit amet consectetur
+          adipisicing elit. Expedita beatae, reiciendis, facere tempore
+          provident blanditiis cumque sit similique magni sequi alias veniam ea
+          quae voluptate enim corrupti esse, perspiciatis necessitatibus!
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="section third" #third>
+    <span></span>
+
+    <div class="content">
+      <h1>Positive Future</h1>
+    </div>
+  </section>
+  <section class="section info">
+    <span></span>
+
+    <div class="content" #about>
+      <h1>About</h1>
+      <p class="refs">
+        Images: <a href="https://www.nasa.gov" target="_blank">www.nasa.gov</a>
+      </p>
+      <span></span>
+    </div>
+  </section>
+</main>

@@ -31,6 +31,13 @@ body {
   background: $primary-color;
   color: #fff;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-snap-type: y proximity;
+  app-home, app-root {
+    scroll-snap-type: y proximity;
+  }
 }
 
 /*
