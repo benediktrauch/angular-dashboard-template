@@ -24,6 +24,7 @@ $smtb: 3em;
       "nav header"
       "nav main"
       "nav footer";
+
     grid-template-columns: 0 1fr;
     grid-template-rows: $lgtb auto $lgtb;
     @include breakpoint(xs) {
@@ -36,6 +37,7 @@ $smtb: 3em;
         "nav header"
         "nav main"
         "nav footer";
+
       grid-template-columns: 300px 1fr;
       grid-template-rows: $lgtb auto $lgtb;
       @include breakpoint(xs) {
@@ -46,6 +48,11 @@ $smtb: 3em;
   }
 
   &.pushMenu {
+    transition: 0.35s;
+    @include breakpoint(md) {
+      grid-template-columns: 0px 1fr;
+    }
+
     nav {
       transition: 0.35s;
       overflow: hidden;
@@ -61,6 +68,12 @@ $smtb: 3em;
     }
 
     &.menuOpen {
+
+      transition: 0.35s;
+      @include breakpoint(md) {
+        grid-template-columns: 300px 1fr;
+      }
+
       main {
         transition: 0.35s;
         filter: brightness(65%) blur(2px);

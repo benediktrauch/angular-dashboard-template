@@ -11,7 +11,23 @@
       </button>
     </div>
     <div class="content">
-      <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+      <a class="listItem" routerLink="home" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">
+        <div class="left">
+          <span class="overlay"></span>
+        </div>
+        <span class="top"></span>
+        <span class="center">Home</span>
+        <span class="bottom"></span>
+      </a>
+      <a class="listItem" routerLink="profile" [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{ exact: true }">
+        <div class="left">
+          <span class="overlay"></span>
+        </div>
+        <span class="top"></span>
+        <span class="center">Profile</span>
+        <span class="bottom"></span>
+      </a>
     </div>
     <div class="bottom">
       <span class="button" (click)="_toggleSettings()">Settings</span>

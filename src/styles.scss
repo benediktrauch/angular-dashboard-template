@@ -201,6 +201,7 @@ button {
   transition: $short;
   box-shadow: none;
   font-weight: bolder;
+  cursor: pointer;
 
   &.icon-left {
     padding-left: 1em;

@@ -16,6 +16,7 @@ header {
   overflow-x: hidden;
   @include mat-elevation(2);
   background: $background-color-el1;
+  right: 0;
 
   &.headerFixed {
     position: fixed;

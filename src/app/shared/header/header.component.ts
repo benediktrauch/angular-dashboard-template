@@ -45,7 +45,11 @@ export class HeaderComponent implements OnInit {
   }
 
   @HostListener('window:keyup', ['$event']) keyEvent(event: KeyboardEvent) {
+    console.log('event', event);
     if (event.ctrlKey && event.key === '7') {
+      this._focusSearch();
+    }
+    if (event.ctrlKey && event.key === '/') {
       this._focusSearch();
     }
   }

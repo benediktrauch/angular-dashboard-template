@@ -6,12 +6,14 @@ import { UserComponent } from './user.component';
 import { SharedModuleModule } from '../shared-module/shared-module.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 @NgModule({
   declarations: [
     UserComponent,
     HomeComponent,
+    ProfileComponent,
 
   ],
   imports: [

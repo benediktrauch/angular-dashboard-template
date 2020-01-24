@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { UserComponent } from './user.component';
 import { HomeComponent } from './components/home/home.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,7 @@ const routes: Routes = [
         redirectTo: 'home'
       },
       { path: 'home', component: HomeComponent },
+      { path: 'profile', component: ProfileComponent }
     ]
   },
   {
