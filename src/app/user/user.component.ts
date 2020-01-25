@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class UserComponent implements OnInit {
   title = 'template';
 
-  headerFixed = true;
+  headerFixed = false;
   menuOpen = false;
-  pushMenu = false;
+  // pushMenu = false;
   overlayMenu = true;
   settingsOpen = false;
   menuData = [
@@ -28,8 +28,8 @@ export class UserComponent implements OnInit {
   ngOnInit() { }
 
   toggleMenuStyle() {
-    this.pushMenu = !this.pushMenu;
-    this.overlayMenu = !this.pushMenu;
+    // this.pushMenu = !this.pushMenu;
+    this.overlayMenu = !this.overlayMenu;
   }
 
   toggleMenu() {

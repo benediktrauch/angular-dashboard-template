@@ -15,7 +15,6 @@ export class HeaderComponent implements OnInit {
   @Input() menuOpen: boolean;
   @Input() overlayMenu: boolean;
   @Input() headerFixed: boolean;
-  @Input() pushMenu: boolean;
   @Output() toggleMenu = new EventEmitter<boolean>();
 
   // private menuOpenIcon = require('src/assets/icons/menu_open-24px.svg');

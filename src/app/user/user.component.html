@@ -1,17 +1,33 @@
-<div class="app-wrapper" [ngClass]="{menuOpen: menuOpen, pushMenu: pushMenu, overlayMenu: overlayMenu}">
-
-  <app-header [menuOpen]="menuOpen" [pushMenu]="pushMenu" [headerFixed]="headerFixed" [overlayMenu]="overlayMenu"
-    (toggleMenu)="toggleMenu()">
+<div
+  class="app-wrapper"
+  [ngClass]="{
+    menuOpen: menuOpen,
+    pushMenu: pushMenu,
+    overlayMenu: overlayMenu
+  }"
+>
+  <app-header
+    [menuOpen]="menuOpen"
+    [headerFixed]="headerFixed"
+    [overlayMenu]="overlayMenu"
+    (toggleMenu)="toggleMenu()"
+  >
   </app-header>
 
-  <app-sidebar [menuOpen]="menuOpen" [pushMenu]="pushMenu" [overlayMenu]="overlayMenu" [headerFixed]="headerFixed"
-    (toggleMenu)="toggleMenu()" (toggleMenuStyle)="toggleMenuStyle()" [menuData]="menuData">
+  <app-sidebar
+    [menuOpen]="menuOpen"
+    [overlayMenu]="overlayMenu"
+    [headerFixed]="headerFixed"
+    (toggleMenu)="toggleMenu()"
+    (toggleMenuStyle)="toggleMenuStyle()"
+    [menuData]="menuData"
+  >
   </app-sidebar>
 
-  <main (click)="(overlayMenu && menuOpen) ? toggleMenu() : ''">
+  <!-- <main (click)="overlayMenu && menuOpen ? toggleMenu() : ''"> -->
+  <main (click)="menuOpen ? toggleMenu() : ''">
     <section>
-      <router-outlet>
-      </router-outlet>
+      <router-outlet> </router-outlet>
     </section>
   </main>
 

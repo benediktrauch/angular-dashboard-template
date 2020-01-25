@@ -1,7 +1,6 @@
-@import '~src/styles';
+@import "~src/styles";
 
 footer {
-  grid-area: footer;
   background: mat-color($mat-grey, 800);
   @include mat-elevation(2);
   height: 5em;
@@ -12,15 +11,13 @@ footer {
     display: inline-flex;
     @include centered;
 
-
-  .github {
-    margin: .5em;
-        @include centered;
-        justify-content: space-between;
-span {
-  margin: 0 1em;
-}
+    .github {
+      margin: 0.5em;
+      @include centered;
+      justify-content: space-between;
+      span {
+        margin: 0 1em;
+      }
+    }
   }
-}
-
 }

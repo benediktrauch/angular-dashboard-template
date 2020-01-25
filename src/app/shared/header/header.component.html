@@ -1,25 +1,47 @@
-<header [ngClass]="{headerFixed: headerFixed, pushMenu: pushMenu, menuOpen: menuOpen}">
+<header
+  [ngClass]="{
+    headerFixed: headerFixed,
+    overlayMenu: overlayMenu,
+    menuOpen: menuOpen
+  }"
+>
   <div class="left">
-    <button class="icon-only menuButton" [ngClass]="{menuOpen: menuOpen}" (click)="_toggleMenu()">
-      <img [src]="menuOpen ? 'assets/icons/menu_open-24px.svg' : 'assets/icons/menu-24px.svg'" alt="">
+    <button
+      class="icon-only menuButton"
+      [ngClass]="{ menuOpen: menuOpen }"
+      (click)="_toggleMenu()"
+    >
+      <img
+        [src]="
+          menuOpen
+            ? 'assets/icons/menu_open-24px.svg'
+            : 'assets/icons/menu-24px.svg'
+        "
+        alt=""
+      />
     </button>
     <div class="company">
-      {{companyName}}
+      {{ companyName }}
     </div>
   </div>
   <div class="right">
     <div class="actions">
       <section class="widg-input">
-        <input type="text" class="input" name="searchField" #searchBar>
-        <label for="searchField" class="input-label" (click)="_focusSearch()">Suche</label>
+        <input type="text" class="input" name="searchField" #searchBar />
+        <label for="searchField" class="input-label" (click)="_focusSearch()"
+          >Suche</label
+        >
       </section>
     </div>
     <span>
       Hello,
-      <a routerLink="user">{{user?.name}}</a>
+      <a routerLink="user">{{ user?.name }}</a>
       !
     </span>
-    <span class="userImage" alt="profileImage"
-      [ngStyle]="{'background-image': 'url(https://placeimg.com/72/72/any)'}"></span>
+    <span
+      class="userImage"
+      alt="profileImage"
+      [ngStyle]="{ 'background-image': 'url(https://placeimg.com/72/72/any)' }"
+    ></span>
   </div>
 </header>

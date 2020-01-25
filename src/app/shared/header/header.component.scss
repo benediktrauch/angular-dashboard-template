@@ -68,18 +68,38 @@ header {
     }
   }
 
-  &.pushMenu {
-    &.menuOpen {
-      // right: 0;
-      // width: 100%;
-      width:100%;
+  // &.pushMenu {
+  &.menuOpen {
+    // right: 0;
+    // width: 100%;
+    width: 100%;
 
-      &.headerFixed {
-        @include breakpoint(md) {
-          width: calc(100% - 300px);
+    &.headerFixed {
+      @include breakpoint(md) {
+        width: calc(100% - 300px);
+      }
+
+      transition: 0.35s;
+    }
+  }
+  // }
+
+  @include breakpoint(md) {
+    &.headerFixed {
+      width: calc(100% - 300px);
+    }
+
+    .left {
+      .menuButton {
+        display: none;
+      }
+    }
+
+    &.overlayMenu {
+      .left {
+        .menuButton {
+          display: flex;
         }
-
-        transition: 0.35s;
       }
     }
   }
