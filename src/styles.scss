@@ -4,6 +4,7 @@
 @import "./theme/theming";
 @import "./theme/mixins";
 @import "./theme/elevation";
+@import "./theme/classes";
 
 $primary: mat-palette($mat-lime);
 $accent: mat-palette($mat-cyan, A200, A100, A400);

@@ -6,20 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'template';
+  // title = 'template';
 
-  headerFixed = true;
-  menuOpen = true;
-  pushMenu = true;
-  overlayMenu = false;
-  settingsOpen = false;
+  // headerFixed = false;
+  // menuOpen = true;
+  // pushMenu = true;
+  // overlayMenu = false;
+  // settingsOpen = false;
 
-  toggleMenuStyle() {
-    this.pushMenu = !this.pushMenu;
-    this.overlayMenu = !this.pushMenu;
-  }
+  // toggleMenuStyle() {
+  //   this.pushMenu = !this.pushMenu;
+  //   this.overlayMenu = !this.pushMenu;
+  // }
 
-  toggleMenu() {
-    this.menuOpen = !this.menuOpen;
-  }
+  // toggleMenu() {
+  //   this.menuOpen = !this.menuOpen;
+  // }
 }

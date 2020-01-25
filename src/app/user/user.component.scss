@@ -68,7 +68,6 @@ $smtb: 3em;
     }
 
     &.menuOpen {
-
       transition: 0.35s;
       @include breakpoint(md) {
         grid-template-columns: 300px 1fr;
@@ -86,12 +85,22 @@ $smtb: 3em;
   }
 
   &.overlayMenu {
+    // @include breakpoint(xs) {
+    grid-template-areas:
+      "header"
+      "nav"
+      "main"
+      "footer";
+
+    grid-template-rows: $smtb 0 1fr $smtb;
+    grid-template-columns: 1fr;
+
     @include breakpoint(md) {
-      grid-template-columns: 0 1fr;
+      // grid-template-columns: 0 1fr;
       transition: 0.35s;
 
       &.menuOpen {
-        grid-template-columns: 0 1fr;
+        // grid-template-columns: 0 1fr;
         transition: 0.35s;
 
         main {

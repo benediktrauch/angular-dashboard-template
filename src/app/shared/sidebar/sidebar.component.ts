@@ -12,6 +12,7 @@ export class SidebarComponent implements OnInit {
   @Input() headerFixed: boolean;
   @Input() pushMenu: boolean;
   @Input() overlayMenu: boolean;
+  @Input() menuData: [];
 
   settingsOpen = false;
 
@@ -22,11 +23,11 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     this.router.events.subscribe((event) => {
-      console.log(event);
+      // console.log(event);
       if (this.overlayMenu && this.menuOpen) {
-        // this._toggleMenu();
+        this._toggleMenu();
 
-        this.toggleMenu.emit(false);
+        // this.toggleMenu.emit(false);
       }
     });
   }
@@ -43,6 +44,13 @@ export class SidebarComponent implements OnInit {
 
   _toggleMenu() {
     this.toggleMenu.emit(this.menuOpen);
+  }
+
+  _itemClick() {
+    console.log('click');
+    if (this.overlayMenu && this.menuOpen) {
+      this._toggleMenu();
+    }
   }
 
   logout() {

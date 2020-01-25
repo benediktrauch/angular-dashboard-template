@@ -1,0 +1,17 @@
+.flex {
+  display: flex;
+  width: 100%;
+
+  &.wrap {
+    flex-wrap: wrap;
+  }
+
+  &.centerd {
+    justify-content: center;
+  }
+
+  &.evenly {
+    justify-content: space-evenly;
+  }
+}
+

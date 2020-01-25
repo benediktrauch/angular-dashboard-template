@@ -1,31 +1,54 @@
-<nav [ngClass]="{menuOpen: menuOpen, pushMenu: pushMenu, overlayMenu: overlayMenu}">
-  <div class="menu" [ngClass]="{settingsOpen: settingsOpen}">
+<nav
+  [ngClass]="{
+    menuOpen: menuOpen,
+    pushMenu: pushMenu,
+    overlayMenu: overlayMenu
+  }"
+>
+  <div class="menu" [ngClass]="{ settingsOpen: settingsOpen }">
     <div class="top">
-      <button *ngIf="menuOpen" class="icon-only menuButton" [ngClass]="{menuOpen: menuOpen}" (click)="_toggleMenu()">
-        <img [src]="menuOpen ? 'assets/icons/menu_open-24px.svg' : 'assets/icons/menu-24px.svg'" alt="menu icon">
+      <button
+        *ngIf="menuOpen"
+        class="icon-only menuButton"
+        [ngClass]="{ menuOpen: menuOpen }"
+        (click)="_toggleMenu()"
+      >
+        <img
+          [src]="
+            menuOpen
+              ? 'assets/icons/menu_open-24px.svg'
+              : 'assets/icons/menu-24px.svg'
+          "
+          alt="menu icon"
+        />
       </button>
       <div></div>
       <!-- <input type="checkbox" name="pinMenu" id="pinMenu" [value]="pushMenu" > -->
       <button (click)="_toggleMenuStyle()" class="icon-only pinMenu">
-        <img [src]="pushMenu ? 'assets/icons/lock-24px.svg' : 'assets/icons/lock_open-24px.svg'" alt="fix menu">
+        <img
+          [src]="
+            pushMenu
+              ? 'assets/icons/lock-24px.svg'
+              : 'assets/icons/lock_open-24px.svg'
+          "
+          alt="fix menu"
+        />
       </button>
     </div>
     <div class="content">
-      <a class="listItem" routerLink="home" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">
+      <a
+        class="listItem"
+        [routerLink]="item.path"
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+        *ngFor="let item of menuData"
+        (click)="_itemClick()"
+      >
         <div class="left">
           <span class="overlay"></span>
         </div>
         <span class="top"></span>
-        <span class="center">Home</span>
-        <span class="bottom"></span>
-      </a>
-      <a class="listItem" routerLink="profile" [routerLinkActive]="['active']"
-        [routerLinkActiveOptions]="{ exact: true }">
-        <div class="left">
-          <span class="overlay"></span>
-        </div>
-        <span class="top"></span>
-        <span class="center">Profile</span>
+        <span class="center">{{ item.name }}</span>
         <span class="bottom"></span>
       </a>
     </div>

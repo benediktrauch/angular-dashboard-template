@@ -5,7 +5,7 @@
   </app-header>
 
   <app-sidebar [menuOpen]="menuOpen" [pushMenu]="pushMenu" [overlayMenu]="overlayMenu" [headerFixed]="headerFixed"
-    (toggleMenu)="toggleMenu()" (toggleMenuStyle)="toggleMenuStyle()">
+    (toggleMenu)="toggleMenu()" (toggleMenuStyle)="toggleMenuStyle()" [menuData]="menuData">
   </app-sidebar>
 
   <main (click)="(overlayMenu && menuOpen) ? toggleMenu() : ''">

@@ -9,15 +9,23 @@ export class UserComponent implements OnInit {
   title = 'template';
 
   headerFixed = true;
-  menuOpen = true;
-  pushMenu = true;
-  overlayMenu = false;
+  menuOpen = false;
+  pushMenu = false;
+  overlayMenu = true;
   settingsOpen = false;
-
+  menuData = [
+    {
+      name: 'Home',
+      path: 'home'
+    },
+    {
+      name: 'Profile',
+      path: 'profile'
+    }
+  ];
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   toggleMenuStyle() {
     this.pushMenu = !this.pushMenu;

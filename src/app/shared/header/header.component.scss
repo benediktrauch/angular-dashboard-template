@@ -72,14 +72,14 @@ header {
     &.menuOpen {
       // right: 0;
       // width: 100%;
-      @include breakpoint(md) {
-        width: calc(100% - 300px);
-      }
-
-      transition: 0.35s;
+      width:100%;
 
       &.headerFixed {
-        // width: calc(100% - 300px);
+        @include breakpoint(md) {
+          width: calc(100% - 300px);
+        }
+
+        transition: 0.35s;
       }
     }
   }

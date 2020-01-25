@@ -8,7 +8,6 @@ nav {
   height: 100vh;
   // background: #474747;
   background: $background-color-el1;
-
   z-index: 1;
 
   &.pushMenu {
@@ -29,6 +28,22 @@ nav {
   }
 
   &.overlayMenu {
+    width: 300px;
+    transform: translateX(-300px);
+    // position: fixed;
+    // top: 0;
+
+    @include breakpoint(xs) {
+      transform: translateX(-100vw);
+      transition: 0.35s;
+      position: fixed;
+      &.menuOpen {
+        transform: translateX(0);
+        transition: 0.35s;
+        width: 100vw;
+      }
+    }
+
     @include breakpoint(md) {
       grid-template-columns: 0 1fr;
       transition: 0.35s;
@@ -90,19 +105,20 @@ nav {
       grid-template-rows: auto;
 
       @include breakpoint(md) {
-      grid-template-areas:
-      "top top"
-      "left center"
-      "bottom bottom";
+        grid-template-areas:
+          "top top"
+          "left center"
+          "bottom bottom";
 
-      grid-template-columns: 2em auto;
-      grid-template-rows: 1em auto 1em;
+        grid-template-columns: 2em auto;
+        grid-template-rows: 1em auto 1em;
       }
       text-decoration: none;
 
       font-size: 1.2em;
 
-      .top, .bottom {
+      .top,
+      .bottom {
         background: $background-color-el1;
         height: 1em;
         display: block;
@@ -134,36 +150,37 @@ nav {
       }
       &.active {
         .center {
-        background: $background-color-el0;
-        padding: 1em;
-        border-radius: 1.5em;
+          background: $background-color-el0;
+          padding: 1em;
+          border-radius: 1.5em;
+        }
       }
-    }
       @include breakpoint(md) {
-      &.active {
-        background: $background-color-el0;
-        .top, .bottom {
-          background: $background-color-el1;
-        }
-        .top {
-          border-end-end-radius: 1em;
-        }
-        .bottom {
-          border-start-end-radius: 1em;
-        }
-        .center {
-          padding: 1em 0;
-        }
-        .left {
-          background: $background-color-el1;
-          .overlay {
-            border-end-start-radius: 2em;
-            border-start-start-radius: 2em;
-            background: $background-color-el0;
+        &.active {
+          background: $background-color-el0;
+          .top,
+          .bottom {
+            background: $background-color-el1;
+          }
+          .top {
+            border-end-end-radius: 1em;
+          }
+          .bottom {
+            border-start-end-radius: 1em;
+          }
+          .center {
+            padding: 1em 0;
+          }
+          .left {
+            background: $background-color-el1;
+            .overlay {
+              border-end-start-radius: 2em;
+              border-start-start-radius: 2em;
+              background: $background-color-el0;
+            }
           }
         }
       }
-    }
     }
   }
 
@@ -171,8 +188,8 @@ nav {
     align-self: flex-end;
     padding: 1em;
     position: relative;
-    display:  grid;
-    gap: .5em;
+    display: grid;
+    gap: 0.5em;
     .list {
       max-height: 0;
       transition: 1s;
