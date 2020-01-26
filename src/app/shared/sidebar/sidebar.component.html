@@ -53,7 +53,22 @@
       </a>
     </div>
     <div class="bottom">
-      <span class="button" (click)="_toggleSettings()">Settings</span>
+      <div class="button" (click)="_toggleSettings()">
+        <span class="flex between v-center"
+          >Settings
+          <div
+            class="myChevron"
+            [ngClass]="{
+              myChevron: true,
+              up: !settingsOpen,
+              down: settingsOpen
+            }"
+          >
+            <span class="chev firstLine"></span>
+            <span class="chev secondLine"></span>
+          </div>
+        </span>
+      </div>
       <div class="list">
         <ul>
           <li>1</li>

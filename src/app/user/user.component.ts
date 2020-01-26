@@ -8,15 +8,43 @@ import { Component, OnInit } from '@angular/core';
 export class UserComponent implements OnInit {
   title = 'template';
 
-  headerFixed = false;
+  headerFixed = true;
   menuOpen = false;
   // pushMenu = false;
-  overlayMenu = true;
+  overlayMenu = false;
   settingsOpen = false;
   menuData = [
     {
       name: 'Home',
       path: 'home'
+    },
+    {
+      name: 'Profile',
+      path: 'profile'
+    },
+    {
+      name: 'Profile',
+      path: 'profile'
+    },
+    {
+      name: 'Profile',
+      path: 'profile'
+    },
+    {
+      name: 'Profile',
+      path: 'profile'
+    },
+    {
+      name: 'Profile',
+      path: 'profile'
+    },
+    {
+      name: 'Profile',
+      path: 'profile'
+    },
+    {
+      name: 'Profile',
+      path: 'profile'
     },
     {
       name: 'Profile',

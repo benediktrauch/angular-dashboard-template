@@ -90,15 +90,19 @@ nav {
 
 .menu {
   display: grid;
-  height: 100%;
-  grid-template-rows: $lgtb 1fr $lgtb;
-  @include breakpoint(xs) {
-    grid-template-rows: $smtb 1fr $smtb;
+  height: calc(100vh - 3em);
+  grid-template-rows: 1fr $smtb;
+  @include breakpoint(sm) {
+    height: calc(100vh - 5em);
+  }
+  @include breakpoint(md) {
+    height: 100%;
+    grid-template-rows: $lgtb 1fr $lgtb;
   }
   .top {
     display: none;
     @include breakpoint(md) {
-      height: 3em;
+      // height: $lgtb;
 
       @include mat-bg-elevation(2);
       align-items: center;
@@ -110,7 +114,13 @@ nav {
   .content {
     height: auto;
     align-self: flex-start;
-    padding: 1em 0 1em 1em;
+    overflow: auto;
+    max-height: calc(100% - 5em);
+    padding: 1em;
+    @include breakpoint(md) {
+      max-height: calc(100% - 5em);
+      padding: 1em 0 1em 1em;
+    }
     .listItem {
       background: $background-color-el1;
       display: grid;
@@ -136,7 +146,10 @@ nav {
       .bottom {
         background: $background-color-el1;
         height: 1em;
-        display: block;
+        display: none;
+        @include breakpoint(md) {
+          display: block;
+        }
         padding: 0;
       }
 
@@ -150,23 +163,30 @@ nav {
         background: $background-color-el1;
         grid-area: left;
         position: relative;
+        display: none;
+        @include breakpoint(md) {
+          display: block;
+        }
         .overlay {
           position: absolute;
           width: 100%;
           height: 100%;
         }
       }
-
       .top {
         grid-area: top;
       }
       .bottom {
         grid-area: bottom;
       }
+
       &.active {
         .center {
           background: $background-color-el0;
-          padding: 1em;
+          padding: 0.5em 1em;
+          @include breakpoint(md) {
+            padding: 1em;
+          }
           border-radius: 1.5em;
         }
       }
@@ -205,9 +225,12 @@ nav {
     position: relative;
     display: grid;
     gap: 0.5em;
+    background: $background-color-el2;
+    transition: 0.5s;
+
     .list {
       max-height: 0;
-      transition: 1s;
+      transition: 0.5s;
       overflow: hidden;
     }
 
@@ -221,11 +244,19 @@ nav {
   }
 
   &.settingsOpen {
-    grid-template-rows: $lgtb 1fr auto;
-    @include breakpoint(xs) {
-      grid-template-rows: $smtb 1fr auto;
-    }
+    // grid-template-rows: $smtb 1fr $smtb;
+    // @include breakpoint(sm) {
+    //   grid-template-rows: $lgtb 1fr $lgtb;
+    // }
+
+    // grid-template-rows: 1fr $smtb;
+    // @include breakpoint(md) {
+    //   grid-template-rows: $lgtb 1fr $lgtb;
+    // }
     .bottom {
+      background: $background-color-el5;
+      transition: 0.5s;
+
       .list {
         max-height: 50vh;
         height: min-content;
