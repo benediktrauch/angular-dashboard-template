@@ -22,4 +22,5 @@ export class AppComponent {
   // toggleMenu() {
   //   this.menuOpen = !this.menuOpen;
   // }
+
 }

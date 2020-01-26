@@ -199,9 +199,11 @@ nav {
           }
           .top {
             border-end-end-radius: 1em;
+            border-bottom-right-radius: 1em;
           }
           .bottom {
             border-start-end-radius: 1em;
+            border-top-right-radius: 1em;
           }
           .center {
             padding: 1em 0;
@@ -211,6 +213,10 @@ nav {
             .overlay {
               border-end-start-radius: 2em;
               border-start-start-radius: 2em;
+
+              border-top-left-radius: 2em;
+              border-bottom-left-radius: 2em;
+
               background: $background-color-el0;
             }
           }

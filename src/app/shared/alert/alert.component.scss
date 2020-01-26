@@ -2,7 +2,133 @@
 
 .alert {
   margin: 0.5em 0;
-  border-radius: 0.5em;
+  border-radius: 0.15em;
   background: $background-color-el4;
-  padding: 0.5em 1em;
+  // padding: 0.5em 1em;
+  @include mat-elevation(4);
+  min-width: 6em;
+  margin-left: 3em;
+  position: relative;
+
+  // clip-path: inset(100% 0 100% 0);
+
+  animation: swipeOut 0.5s 9s forwards;
+  border: 1px solid rgb(100, 100, 100);
+  border-right: 2px solid;
+  backdrop-filter: blur(4px);
+
+  opacity: 0.85;
+
+  .header {
+    width: calc(100% - 1em);
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25em 0 0.5em;
+    margin: 0.5em 0.5em 0.5em 1em;
+
+    .text {
+      font-size: 1.1em;
+      font-weight: bolder;
+      margin-right: 1em;
+    }
+
+    .close {
+      font-size: 1.5em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+
+      width: 2em;
+
+      .circleTimer {
+        position: absolute;
+        circle {
+          fill: none;
+          stroke-width: 2px;
+          stroke: $primary-color;
+          animation: myTimer 9.2s forwards;
+          stroke-dasharray: 76;
+        }
+      }
+    }
+  }
+
+  .body {
+    margin: 0.5em 1em;
+  }
+
+  .timer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 1px;
+    background: #ffffff;
+    border-radius: 2px;
+
+    animation: shrink 9.2s forwards;
+  }
+
+  &.alert-success {
+    border-right-color: $success-color;
+    .header {
+      .text {
+        color: $success-color;
+      }
+    }
+  }
+  &.alert-info {
+    border-right-color: $info-color;
+    .header {
+      .text {
+        color: $info-color;
+      }
+    }
+  }
+  &.alert-warning {
+    border-right-color: $warning-color;
+    .header {
+      .text {
+        color: $warning-color;
+      }
+    }
+  }
+  &.alert-danger {
+    border-right-color: $error-color;
+    .header {
+      .text {
+        color: $error-color;
+      }
+    }
+  }
+}
+
+@keyframes shrink {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0;
+  }
+}
+
+@keyframes swipeOut {
+  from {
+    clip-path: inset(100% 0 100% 0);
+  }
+  to {
+    clip-path: inset(100% 0 100% 100%);
+  }
+}
+
+@keyframes myTimer {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: 76;
+  }
 }

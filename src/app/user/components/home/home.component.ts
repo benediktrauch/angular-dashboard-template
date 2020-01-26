@@ -17,13 +17,11 @@ export class HomeComponent implements OnInit {
 
   error(message: string) {
     message = 'Test';
-
     this.alertService.error(message);
   }
 
   info(message: string) {
-    message = 'Test';
-
+    message = 'Velit optio aut fuga neque sunt, cumque reprehenderit obcaecati accusantium totam voluptatibus eos doloremque.';
     this.alertService.info(message);
   }
 

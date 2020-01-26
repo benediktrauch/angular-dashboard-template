@@ -22,11 +22,17 @@ $primary-triade2: #9ce6ee;
 $secondary-color: mat-color($mat-cyan, 200);
 $secondary-contrast: $background-color;
 
-$warning-color: mat-color($mat-red, 400);
+$success-color: #9ceea4;
+$success-contrast: $background-color;
+
+$info-color: mat-color($mat-cyan, 200);
+$info-contrast: $background-color;
+
+$warning-color: mat-color($mat-amber, 400);
 $warning-contrast: $background-color;
 
-$info-color: mat-color($mat-amber, 400);
-$info-contrast: $background-color;
+$error-color: mat-color($mat-red, 400);
+$error-contrast: $background-color;
 
 @mixin transform($property) {
   transform: $property;
@@ -241,18 +247,18 @@ button {
     }
   }
 
-  &.info {
-    background: $secondary-color;
-    color: $secondary-contrast;
+  &.success {
+    background: $success-color;
+    color: $success-contrast;
     &:hover,
     &:active {
-      background-color: lighten($secondary-color, $amount: 4);
+      background-color: lighten($success-color, $amount: 4);
       @include mat-elevation(1);
       transition: $short;
     }
   }
 
-  &.warning {
+  &.info {
     background: $info-color;
     color: $info-contrast;
     &:hover,
@@ -263,12 +269,23 @@ button {
     }
   }
 
-  &.error {
+  &.warning {
     background: $warning-color;
     color: $warning-contrast;
     &:hover,
     &:active {
       background-color: lighten($warning-color, $amount: 4);
+      @include mat-elevation(1);
+      transition: $short;
+    }
+  }
+
+  &.error {
+    background: $error-color;
+    color: $error-contrast;
+    &:hover,
+    &:active {
+      background-color: lighten($error-color, $amount: 4);
       @include mat-elevation(1);
       transition: $short;
     }

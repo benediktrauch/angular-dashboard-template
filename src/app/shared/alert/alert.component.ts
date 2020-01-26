@@ -25,6 +25,10 @@ export class AlertComponent implements OnInit, OnDestroy {
           return;
         }
 
+        if (alert.dissmiss) {
+          setTimeout(() => { this.removeAlert(alert); }, 10000);
+        }
+
         // add alert to array
         this.alerts.push(alert);
       });
@@ -38,6 +42,22 @@ export class AlertComponent implements OnInit, OnDestroy {
   removeAlert(alert: Alert) {
     // remove specified alert from array
     this.alerts = this.alerts.filter(x => x !== alert);
+  }
+
+  alertType(alert: Alert) {
+    if (!alert) {
+      return;
+    }
+    switch (alert.type) {
+      case AlertType.Success:
+        return 'Hinweis';
+      case AlertType.Error:
+        return 'Vorsicht';
+      case AlertType.Info:
+        return 'Info';
+      case AlertType.Warning:
+        return 'Warnug';
+    }
   }
 
   cssClass(alert: Alert) {

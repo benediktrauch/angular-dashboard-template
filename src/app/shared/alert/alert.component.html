@@ -1,7 +1,22 @@
 <div
   *ngFor="let alert of alerts"
-  class="alert {{ cssClass(alert) }} alert-dismissable"
+  class="{{ cssClass(alert) }} alert-dismissable"
 >
-  {{ alert.message }}
-  <a class="close" (click)="removeAlert(alert)">&times;</a>
+  <div class="header">
+    <span class="text">{{ alertType(alert) }}</span>
+    <a class="close button" (click)="removeAlert(alert)">
+      &times;
+      <svg width="26" height="26" class="circleTimer">
+        <circle
+          class="outer"
+          cx="13"
+          cy="13"
+          r="12"
+          transform="rotate(-90, 13, 13)"
+        />
+      </svg>
+    </a>
+  </div>
+  <div class="body">{{ alert.message }}</div>
+  <!-- <span class="timer"></span> -->
 </div>

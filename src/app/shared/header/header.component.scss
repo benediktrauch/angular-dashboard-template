@@ -71,10 +71,7 @@ header {
     }
   }
 
-  // &.pushMenu {
   &.menuOpen {
-    // right: 0;
-    // width: 100%;
     width: 100%;
 
     &.headerFixed {
@@ -85,7 +82,6 @@ header {
       transition: 0.35s;
     }
   }
-  // }
 
   @include breakpoint(md) {
     &.headerFixed {
@@ -99,6 +95,12 @@ header {
     }
 
     &.overlayMenu {
+      width: 100%;
+
+      &.headerFixed {
+        width: 100%;
+      }
+
       .left {
         .menuButton {
           display: flex;

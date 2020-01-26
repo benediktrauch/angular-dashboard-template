@@ -8,12 +8,12 @@ import { AlertService } from '../shared/alert/alert.service';
 })
 export class UserComponent implements OnInit {
   title = 'template';
+  settingsOpen = false;
+  menuOpen = false;
 
   headerFixed = true;
-  menuOpen = false;
-  // pushMenu = false;
   overlayMenu = false;
-  settingsOpen = false;
+
   menuData = [
     {
       name: 'Home',
@@ -26,6 +26,21 @@ export class UserComponent implements OnInit {
   ];
 
   constructor(private alertService: AlertService) { }
+
+  ngOnInit() {
+    const testObject = { headerFixed: true, overlayMenu: false };
+
+    localStorage.setItem('appSettings', JSON.stringify(testObject));
+
+    const retrievedObject = localStorage.getItem('appSettings');
+    console.log('retrievedObject: ', JSON.parse(retrievedObject));
+
+    // if (retrievedObject) {
+
+    // }
+
+
+  }
 
   success(message: string) {
     this.alertService.success(message);
@@ -47,7 +62,6 @@ export class UserComponent implements OnInit {
     this.alertService.clear();
   }
 
-  ngOnInit() { }
 
   toggleMenuStyle() {
     // this.pushMenu = !this.pushMenu;
