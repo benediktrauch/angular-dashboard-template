@@ -1,4 +1,11 @@
-// @import "~src/styles";
+@import "~src/styles";
+
+app-alert {
+  position: fixed;
+  right: 1em;
+  top: 5em;
+  z-index: 5;
+}
 
 // $lgtb: 5em;
 // $smtb: 3em;

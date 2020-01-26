@@ -16,14 +16,14 @@
     <div class="dashboardItem x2y1">
       <div class="top">text</div>
       <div class="body">
-        <button class="secondary">
-          Secondary Button
-        </button>
-        <button class="warning">
-          Warning Button
-        </button>
-        <button class="info">
+        <button class="info" (click)="info()">
           Info Button
+        </button>
+        <button class="error" (click)="error()">
+          Error Button
+        </button>
+        <button class="warning" (click)="warn()">
+          Warning Button
         </button>
       </div>
     </div>
@@ -112,5 +112,4 @@
       <div class="body">x1y2</div>
     </div>
   </div>
-
 </div>

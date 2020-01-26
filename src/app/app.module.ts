@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { SharedModuleModule } from './shared-module/shared-module.module';
 import { RouterModule } from '@angular/router';
+import { AlertModule } from './shared/alert/alert.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     RouterModule,
     AppRoutingModule,
+    AlertModule,
     SharedModuleModule
   ],
   providers: [],

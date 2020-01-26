@@ -10,7 +10,6 @@ $primary: mat-palette($mat-lime);
 $accent: mat-palette($mat-cyan, A200, A100, A400);
 $theme: mat-light-theme($primary, $accent);
 
-
 $primary-color: mat-color($mat-lime, 200);
 $primary-contrast: $background-color;
 
@@ -28,7 +27,6 @@ $warning-contrast: $background-color;
 
 $info-color: mat-color($mat-amber, 400);
 $info-contrast: $background-color;
-
 
 @mixin transform($property) {
   transform: $property;
@@ -54,7 +52,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-snap-type: y proximity;
-  app-home, app-root {
+  app-home,
+  app-root {
     scroll-snap-type: y proximity;
   }
 }
@@ -191,7 +190,6 @@ a {
   }
 }
 
-
 button {
   border: none;
   background: $primary-color;
@@ -207,13 +205,13 @@ button {
   &.icon-left {
     padding-left: 1em;
     .icon {
-      margin-right: .5em;
+      margin-right: 0.5em;
     }
   }
   &.icon-right {
     padding-right: 1em;
     .icon {
-      margin-left: .5em;
+      margin-left: 0.5em;
     }
   }
 
@@ -221,7 +219,8 @@ button {
     background: none;
     border: 1px solid $primary-color;
     color: $primary-color;
-    &:hover, &:active {
+    &:hover,
+    &:active {
       background: $primary-color;
       color: $primary-contrast;
     }
@@ -232,7 +231,8 @@ button {
     transition: $short;
   }
 
-  &:hover, &:active {
+  &:hover,
+  &:active {
     transition: $short;
     background-color: lighten($primary-color, $amount: 4);
     @include mat-elevation(1);
@@ -241,31 +241,33 @@ button {
     }
   }
 
-  &.secondary {
+  &.info {
     background: $secondary-color;
     color: $secondary-contrast;
-    &:hover, &:active {
+    &:hover,
+    &:active {
       background-color: lighten($secondary-color, $amount: 4);
       @include mat-elevation(1);
       transition: $short;
     }
   }
 
-  &.info {
+  &.warning {
     background: $info-color;
     color: $info-contrast;
-    &:hover, &:active {
+    &:hover,
+    &:active {
       background-color: lighten($info-color, $amount: 4);
       @include mat-elevation(1);
       transition: $short;
     }
   }
 
-
-  &.warning {
+  &.error {
     background: $warning-color;
     color: $warning-contrast;
-    &:hover, &:active {
+    &:hover,
+    &:active {
       background-color: lighten($warning-color, $amount: 4);
       @include mat-elevation(1);
       transition: $short;
@@ -273,7 +275,8 @@ button {
   }
 
   &.icon-only {
-    &:hover, &:active {
+    &:hover,
+    &:active {
       background: none;
     }
   }
