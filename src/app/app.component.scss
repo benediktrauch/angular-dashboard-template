@@ -63,7 +63,7 @@ app-alert {
 //         "nav header"
 //         "nav main"
 //         "nav footer";
-//       grid-template-columns: 300px 1fr;
+//       grid-template-columns: $menuWidth 1fr;
 //       grid-template-rows: $lgtb auto $lgtb;
 //       @include breakpoint(xs) {
 //         grid-template-rows: $smtb auto $smtb;
@@ -77,8 +77,8 @@ app-alert {
 //       transition: 0.35s;
 //       overflow: hidden;
 //       position: fixed;
-//       width: 300px;
-//       transform: translateX(-300px);
+//       width: $menuWidth;
+//       transform: translateX(-$menuWidth);
 
 //       &.menuOpen {
 //         transition: 0.35s;
@@ -117,12 +117,12 @@ app-alert {
 //         transition: 0.35s;
 //         overflow: hidden;
 //         position: fixed;
-//         transform: translateX(-300px);
+//         transform: translateX(-$menuWidth);
 //         box-shadow: none;
 
 //         &.menuOpen {
 //           transition: 0.35s;
-//           width: 300px;
+//           width: $menuWidth;
 //           transform: translateX(0);
 //           @include mat-elevation(4);
 //           overflow: auto;

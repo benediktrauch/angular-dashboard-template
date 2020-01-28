@@ -16,8 +16,8 @@
         <img
           [src]="
             menuOpen
-              ? 'assets/icons/menu-24px.svg'
-              : 'assets/icons/menu_open-24px.svg'
+              ? 'assets/icons/menu_open-24px.svg'
+              : 'assets/icons/menu-24px.svg'
           "
           alt="menu icon"
         />
@@ -28,8 +28,8 @@
         <img
           [src]="
             pushMenu
-              ? 'assets/icons/lock-24px.svg'
-              : 'assets/icons/lock_open-24px.svg'
+              ? 'assets/icons/lock_open-24px.svg'
+              : 'assets/icons/lock-24px.svg'
           "
           alt="fix menu"
         />
@@ -44,13 +44,25 @@
         *ngFor="let item of menuData"
         (click)="_itemClick()"
       >
-        <div class="left">
+        <div class="listItemLeft">
           <span class="overlay"></span>
         </div>
-        <span class="top"></span>
-        <span class="center">{{ item.name }}</span>
-        <span class="bottom"></span>
+        <span class="listItemTop"></span>
+        <div class="listItemCenter">
+          <span class="icon">
+            <img [src]="item.icon" alt="{{ item.name }} icon" />
+          </span>
+          <span class="title">{{ item.name }}</span>
+        </div>
+        <span class="listItemBottom"></span>
       </a>
+    </div>
+    <div class="bottom-small">
+      <div class="logout">
+        <button class="icon-only" (click)="logout()">
+          <span class="icon">X</span>
+        </button>
+      </div>
     </div>
     <div class="bottom">
       <div class="button" (click)="_toggleSettings()">

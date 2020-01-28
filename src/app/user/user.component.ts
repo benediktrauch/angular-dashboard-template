@@ -17,11 +17,13 @@ export class UserComponent implements OnInit {
   menuData = [
     {
       name: 'Home',
-      path: 'home'
+      path: 'home',
+      icon: 'assets/icons/menu-24px.svg'
     },
     {
       name: 'Profile',
-      path: 'profile'
+      path: 'profile',
+      icon: 'assets/icons/lock-24px.svg'
     }
   ];
 

@@ -55,7 +55,7 @@ $smtb: 3em;
       "nav main"
       "nav footer";
 
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 72px 1fr;
     grid-template-rows: $lgtb 1fr $lgtb;
     transition: 0.35s;
 
@@ -72,43 +72,6 @@ $smtb: 3em;
       }
     }
 
-    /*
-
-  transition: 0.35s;
-  @include breakpoint(md) {
-    grid-template-columns: 0px 1fr;
-  }
-
-  nav {
-    transition: 0.35s;
-    overflow: hidden;
-    position: fixed;
-    width: 300px;
-    transform: translateX(-300px);
-
-    &.menuOpen {
-      transition: 0.35s;
-      transform: translateX(0);
-      overflow: auto;
-    }
-  }
-
-  &.menuOpen {
-    transition: 0.35s;
-    @include breakpoint(md) {
-      grid-template-columns: 300px 1fr;
-    }
-
-    main {
-      transition: 0.35s;
-      filter: brightness(65%) blur(2px);
-
-      @include breakpoint(md) {
-        filter: none;
-      }
-    }
-  }
-*/
     &.overlayMenu {
       // @include breakpoint(xs) {
       grid-template-areas:
@@ -137,12 +100,77 @@ $smtb: 3em;
         transition: 0.35s;
         overflow: hidden;
         position: fixed;
-        transform: translateX(-300px);
+        transform: translateX(-72px);
         box-shadow: none;
 
         &.menuOpen {
           transition: 0.35s;
-          width: 300px;
+          width: 72px;
+          transform: translateX(0);
+          @include mat-elevation(4);
+          overflow: auto;
+        }
+      }
+    }
+  }
+
+  @include breakpoint(lg) {
+    grid-template-areas:
+      "nav header"
+      "nav main"
+      "nav footer";
+
+    grid-template-columns: $menuWidth 1fr;
+    grid-template-rows: $lgtb 1fr $lgtb;
+    transition: 0.35s;
+
+    main {
+      transition: 0.35s;
+      filter: none;
+    }
+
+    &.menuOpen {
+      transition: 0.35s;
+      main {
+        transition: 0.35s;
+        filter: none;
+      }
+    }
+
+    &.overlayMenu {
+      // @include breakpoint(xs) {
+      grid-template-areas:
+        "nav header"
+        "nav main"
+        "nav footer";
+
+      grid-template-columns: 0 1fr;
+
+      // grid-template-rows: $smtb 0 1fr $smtb;
+      // grid-template-columns: 1fr;
+
+      // grid-template-columns: 0 1fr;
+      transition: 0.35s;
+
+      &.menuOpen {
+        // grid-template-columns: 0 1fr;
+        transition: 0.35s;
+
+        main {
+          transition: 0.35s;
+          filter: brightness(65%) blur(2px);
+        }
+      }
+      nav {
+        transition: 0.35s;
+        overflow: hidden;
+        position: fixed;
+        transform: translateX(-$menuWidth);
+        box-shadow: none;
+
+        &.menuOpen {
+          transition: 0.35s;
+          width: $menuWidth;
           transform: translateX(0);
           @include mat-elevation(4);
           overflow: auto;

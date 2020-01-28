@@ -34,6 +34,8 @@ $warning-contrast: $background-color;
 $error-color: mat-color($mat-red, 400);
 $error-contrast: $background-color;
 
+$menuWidth: 220px;
+
 @mixin transform($property) {
   transform: $property;
 }
@@ -218,6 +220,19 @@ button {
     padding-right: 1em;
     .icon {
       margin-left: 0.5em;
+    }
+  }
+
+  &.icon-only {
+    padding: 0.75em;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .icon {
+      // margin-left: 0.5em;
+      margin: auto;
     }
   }
 

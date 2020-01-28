@@ -76,16 +76,44 @@ header {
 
     &.headerFixed {
       @include breakpoint(md) {
-        width: calc(100% - 300px);
+        width: calc(100% - 72px);
       }
-
+      @include breakpoint(lg) {
+        width: calc(100% - #{$menuWidth});
+      }
       transition: 0.35s;
     }
   }
 
   @include breakpoint(md) {
     &.headerFixed {
-      width: calc(100% - 300px);
+      width: calc(100% - 72px);
+    }
+
+    .left {
+      .menuButton {
+        display: none;
+      }
+    }
+
+    &.overlayMenu {
+      width: 100%;
+
+      &.headerFixed {
+        width: 100%;
+      }
+
+      .left {
+        .menuButton {
+          display: flex;
+        }
+      }
+    }
+  }
+
+  @include breakpoint(lg) {
+    &.headerFixed {
+      width: calc(100% - #{$menuWidth});
     }
 
     .left {
