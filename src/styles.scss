@@ -66,24 +66,6 @@ body {
   }
 }
 
-/*
-
-.text-center { text-align: center }
-
-@media (min-width: 640px) {
-  .tablet\:text-center { text-align: center }
-}
-
-@media (min-width: 1024px) {
-  .laptop\:text-center { text-align: center }
-}
-
-@media (min-width: 1280px) {
-  .desktop\:text-center { text-align: center }
-}
-
-*/
-
 @mixin breakpoint($point) {
   @if $point == xl {
     @media screen and (min-width: 70em) {
@@ -129,35 +111,6 @@ a {
   img {
     width: 32px;
   }
-
-  // .bar {
-  //   height: 4px;
-  //   width: 32px;
-  //   margin: 2px 0;
-  //   background: #fff;
-  //   border-radius: 3px;
-  // }
-
-  // &.menuOpen {
-  //   .bar {
-  //     position: absolute;
-  //     &.firstBar {
-  //       transition: 0.8s;
-  //       transform: translatex(-10px) translateY(6px) rotate(40deg);
-
-  //       width: 22px;
-  //     }
-  //     &.secondBar {
-  //       transition: 0.6s;
-  //     }
-  //     &.thirdBar {
-  //       transition: 0.6s;
-  //       transform: translatex(-10px) translateY(-6px) rotate(-40deg);
-  //       width: 22px;
-  //     }
-  //   }
-
-  // }
 }
 
 .widg-input {
@@ -203,23 +156,38 @@ button {
   background: $primary-color;
   color: $primary-contrast;
   border-radius: 2em;
-  padding: 0.5em 1.5em;
+  padding: 0.5em 1.5em; // 0.4em;
   text-transform: uppercase;
   transition: $short;
   box-shadow: none;
   font-weight: bolder;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
 
   &.icon-left {
     padding-left: 1em;
     .icon {
       margin-right: 0.5em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .material-icons {
+        font-size: 16px;
+      }
     }
   }
   &.icon-right {
     padding-right: 1em;
     .icon {
       margin-left: 0.5em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .material-icons {
+        font-size: 16px;
+      }
     }
   }
 
@@ -234,16 +202,8 @@ button {
       // margin-left: 0.5em;
       margin: auto;
     }
-  }
-
-  &.outlined {
-    background: none;
-    border: 1px solid $primary-color;
-    color: $primary-color;
-    &:hover,
-    &:active {
-      background: $primary-color;
-      color: $primary-contrast;
+    &.md-icon {
+      padding: 1px 6px;
     }
   }
 
@@ -259,6 +219,17 @@ button {
     @include mat-elevation(1);
     &.elevated {
       @include mat-elevation(2);
+    }
+  }
+
+  &.outlined {
+    background: none;
+    border: 1px solid $primary-color;
+    color: $primary-color;
+    &:hover,
+    &:active {
+      background-color: $primary-color;
+      color: $primary-contrast;
     }
   }
 
@@ -309,7 +280,8 @@ button {
   &.icon-only {
     &:hover,
     &:active {
-      background: none;
+      background-color: $primary-color;
+      color: $primary-contrast;
     }
   }
 }

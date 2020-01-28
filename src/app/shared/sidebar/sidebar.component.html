@@ -50,7 +50,14 @@
         <span class="listItemTop"></span>
         <div class="listItemCenter">
           <span class="icon">
-            <img [src]="item.icon" alt="{{ item.name }} icon" />
+            <img
+              [src]="item.icon.svg"
+              alt="{{ item.name }} icon"
+              *ngIf="item.icon.svg"
+            />
+            <i class="material-icons md-light" *ngIf="item.icon.material">
+              {{ item.icon.material.toString() }}
+            </i>
           </span>
           <span class="title">{{ item.name }}</span>
         </div>
@@ -59,8 +66,10 @@
     </div>
     <div class="bottom-small">
       <div class="logout">
-        <button class="icon-only" (click)="logout()">
-          <span class="icon">X</span>
+        <button class="icon-only md-icon" (click)="logout()">
+          <i class="material-icons md-18">
+            power_settings_new
+          </i>
         </button>
       </div>
     </div>
@@ -93,7 +102,11 @@
       </div>
       <div class="logout">
         <button class="outlined icon-left elevated" (click)="logout()">
-          <span class="icon">X</span>
+          <span class="icon">
+            <i class="material-icons md-18">
+              power_settings_new
+            </i>
+          </span>
           Logout
         </button>
       </div>

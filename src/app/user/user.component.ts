@@ -11,20 +11,31 @@ export class UserComponent implements OnInit {
   settingsOpen = false;
   menuOpen = false;
 
-  headerFixed = true;
+  headerFixed = false;
   overlayMenu = false;
 
   menuData = [
     {
       name: 'Home',
       path: 'home',
-      icon: 'assets/icons/menu-24px.svg'
+      icon: {
+        material: 'home'
+      }
     },
     {
       name: 'Profile',
       path: 'profile',
-      icon: 'assets/icons/lock-24px.svg'
+      icon: {
+        material: 'account_circle'
+      }
     }
+    // {
+    //   name: 'Profile',
+    //   path: 'profile',
+    //   icon: {
+    //     svg: 'assets/icons/lock-24px.svg'
+    //   }
+    // }
   ];
 
   constructor(private alertService: AlertService) { }

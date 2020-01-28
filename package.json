@@ -22,6 +22,9 @@
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
     "angular-cli-ghpages": "^0.6.2",
+    "install": "^0.13.0",
+    "material-design-icons": "^3.0.1",
+    "npm": "^6.13.6",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
