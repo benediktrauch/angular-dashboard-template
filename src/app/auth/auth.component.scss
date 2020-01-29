@@ -1,0 +1,60 @@
+@import "~src/styles";
+
+.auth-wrapper {
+  display: grid;
+  height: 100%;
+  min-height: 100vh;
+
+  grid-template-areas: "info" "auth";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+
+  background-image: url(~/assets/images/third_high-res.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+
+  @include breakpoint(sm) {
+    grid-template-areas: "info" "auth";
+    grid-template-columns: 1fr;
+  }
+  @include breakpoint(md) {
+    grid-template-areas: "info auth";
+    grid-template-columns: 0.6fr 1fr;
+    grid-template-rows: 1fr;
+  }
+  @include breakpoint(lg) {
+    grid-template-areas: "info auth";
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .auth-navigation {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: 2em;
+  }
+
+  .auth-info {
+    grid-area: info;
+
+    padding: 2em;
+
+    display: flex;
+    justify-content: center;
+  }
+
+  .auth-card {
+    grid-area: auth;
+    @include mat-elevation(2);
+    @include mat-bg-elevation(1);
+    padding: 1em;
+    margin: 2em;
+    border-radius: 0.5em;
+    backdrop-filter: blur(10px) brightness(20%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

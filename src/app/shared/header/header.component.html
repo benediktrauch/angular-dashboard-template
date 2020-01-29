@@ -7,18 +7,24 @@
 >
   <div class="left">
     <button
-      class="icon-only menuButton"
+      class="icon-only no-bg menuButton"
       [ngClass]="{ menuOpen: menuOpen }"
       (click)="_toggleMenu()"
     >
-      <img
+      <i class="material-icons md-18" *ngIf="menuOpen">
+        menu_open
+      </i>
+      <i class="material-icons md-18" *ngIf="!menuOpen">
+        menu
+      </i>
+      <!-- <img
         [src]="
           menuOpen
             ? 'assets/icons/menu_open-24px.svg'
             : 'assets/icons/menu-24px.svg'
         "
         alt=""
-      />
+      /> -->
     </button>
     <div class="company">
       {{ companyName }}
@@ -27,7 +33,13 @@
   <div class="right">
     <div class="actions">
       <section class="widg-input">
-        <input type="text" class="input" name="searchField" #searchBar />
+        <input
+          type="text"
+          class="input"
+          name="searchField"
+          placeholder=""
+          #searchBar
+        />
         <label for="searchField" class="input-label" (click)="_focusSearch()"
           >Suche</label
         >

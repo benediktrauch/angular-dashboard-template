@@ -113,6 +113,19 @@ a {
   }
 }
 
+.input {
+  background: none;
+  border: 1px solid white;
+  height: 24px;
+  border-radius: 5px;
+  padding: 0.75em 1em;
+  order: 0;
+  color: white;
+  &:focus {
+    box-shadow: 0 0 1px 2px rgba(200, 200, 200, 0.6);
+  }
+}
+
 .widg-input {
   display: flex;
   position: relative;
@@ -148,6 +161,25 @@ a {
         opacity: 1;
       }
     }
+
+    &:not(:placeholder-shown) {
+      + .input-label {
+        top: -8px;
+        font-size: 0.7em;
+        transition: 0.25s;
+        font-weight: bolder;
+        opacity: 1;
+      }
+    }
+
+    &[data-state="invalid"] {
+      border-color: hsl(0, 76%, 50%);
+    }
+
+    // &[data-state="valid"],
+    // &:valid {
+    //   border-color: hsl(120, 76%, 50%);
+    // }
   }
 }
 
@@ -205,6 +237,17 @@ button {
     &.md-icon {
       padding: 1px 6px;
     }
+    &.no-bg {
+      background: none;
+      color: $primary-color;
+    }
+
+    &.hover-icon {
+      display: flex;
+      .hover-back {
+        display: none;
+      }
+    }
   }
 
   &.elevated {
@@ -219,6 +262,33 @@ button {
     @include mat-elevation(1);
     &.elevated {
       @include mat-elevation(2);
+    }
+    &.icon-only {
+      background-color: $primary-color;
+      color: $primary-contrast;
+      &.no-bg {
+        background: none;
+        color: $primary-color;
+        box-shadow: none;
+      }
+    }
+  }
+
+  &:hover {
+    .material-icons {
+      animation: bounce 0.55s;
+    }
+
+    &.icon-only.hover-icon {
+      display: flex !important;
+      .hover-back {
+        position: absolute;
+        display: block;
+        animation: none;
+      }
+      .material-icons {
+        animation: none;
+      }
     }
   }
 
@@ -276,12 +346,52 @@ button {
       transition: $short;
     }
   }
+}
 
-  &.icon-only {
-    &:hover,
-    &:active {
-      background-color: $primary-color;
-      color: $primary-contrast;
-    }
+@keyframes bounce {
+  from {
+    transform: scaleX(1);
+  }
+  25% {
+    transform: scaleX(1.3);
+  }
+  55% {
+    transform: scaleX(0.8);
+  }
+  70% {
+    transform: scaleX(1.1);
+  }
+  85% {
+    transform: scaleX(0.95);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.material-icons {
+  &:hover {
+    animation: pulse 0.55s;
+  }
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  55% {
+    transform: scale(0.95);
+  }
+  70% {
+    transform: scale(1.05);
+  }
+  85% {
+    transform: scale(0.97);
+  }
+  to {
+    transform: scale(1);
   }
 }

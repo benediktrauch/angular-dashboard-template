@@ -9,30 +9,35 @@
     <div class="top">
       <button
         *ngIf="menuOpen"
-        class="icon-only menuButton"
+        class="icon-only no-bg menuButton"
         [ngClass]="{ menuOpen: menuOpen }"
         (click)="_toggleMenu()"
       >
-        <img
-          [src]="
-            menuOpen
-              ? 'assets/icons/menu_open-24px.svg'
-              : 'assets/icons/menu-24px.svg'
-          "
-          alt="menu icon"
-        />
+        <i class="material-icons md-18" *ngIf="pushMenu">
+          menu_open
+        </i>
+        <i class="material-icons md-18" *ngIf="!pushMenu">
+          menu
+        </i>
       </button>
       <div></div>
       <!-- <input type="checkbox" name="pinMenu" id="pinMenu" [value]="pushMenu" > -->
-      <button (click)="_toggleMenuStyle()" class="icon-only pinMenu">
-        <img
-          [src]="
-            pushMenu
-              ? 'assets/icons/lock_open-24px.svg'
-              : 'assets/icons/lock-24px.svg'
-          "
-          alt="fix menu"
-        />
+      <button
+        (click)="_toggleMenuStyle()"
+        class="icon-only hover-icon no-bg pinMenu"
+      >
+        <i class="material-icons hover-front md-18" *ngIf="pushMenu">
+          lock
+        </i>
+        <i class="material-icons hover-back md-18" *ngIf="pushMenu">
+          lock_open
+        </i>
+        <i class="material-icons hover-front md-18" *ngIf="!pushMenu">
+          lock_open
+        </i>
+        <i class="material-icons hover-back md-18" *ngIf="!pushMenu">
+          lock
+        </i>
       </button>
     </div>
     <div class="content">

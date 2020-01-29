@@ -1,0 +1,11 @@
+@import "~src/styles";
+
+.login-wrapper {
+  .login-input {
+    display: grid;
+    margin: 0.75em 0;
+    label {
+      margin-bottom: 0.5em;
+    }
+  }
+}
