@@ -1,11 +1,19 @@
 @import "~src/styles";
 
 .login-wrapper {
+  display: grid;
+  gap: 1em;
+
   .login-input {
     display: grid;
     margin: 0.75em 0;
     label {
       margin-bottom: 0.5em;
     }
+  }
+
+  .register {
+    border-top: 1px solid $primary-color;
+    padding: 0.75em 0;
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ViewChild, Output, EventEmitter, ElementRef, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -19,7 +20,7 @@ export class SidebarComponent implements OnInit {
   @Output() toggleMenu = new EventEmitter<boolean>();
   @Output() toggleMenuStyle = new EventEmitter<boolean>();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
     this.router.events.subscribe((event) => {
@@ -54,7 +55,7 @@ export class SidebarComponent implements OnInit {
   }
 
   logout() {
-    this.router.navigate(['']);
+    this.authService.logout();
   }
 
 }

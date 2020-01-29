@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     private authService: AuthService) { }
 
   ngOnInit() {
-    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/user';
+    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
 
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
@@ -43,9 +43,13 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.f.username.value, this.f.password.value)
       .subscribe(
         data => {
-          this.router.navigate([this.returnUrl]);
+          console.log('data', data);
+          // this.router.navigate([this.returnUrl]);
+          this.router.navigate(['user']);
         },
         error => {
+          console.log('error', error);
+          this.loginForm.setErrors({ incorrect: true });
           this.loading = false;
         });
   }

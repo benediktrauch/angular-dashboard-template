@@ -2,21 +2,39 @@
   <div class="left">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 406 230" id="logo">
       <g id="group_1">
-        <path id="path_2"
+        <path
+          id="path_2"
           d="M 182.98 132.642 C 182.98 179.221 145.381 216.981 99 216.981 C 52.619 216.981 15.02 179.221 15.02 132.642 M 182.98 13.162 L 182.98 132.642 M 15.02 132.642 L 15.02 13.162"
-          fill="none" stroke="#FFFFFF" stroke-width="20" stroke-linecap="round" />
-        <path id="path_3"
+          fill="none"
+          stroke="#FFFFFF"
+          stroke-width="20"
+          stroke-linecap="round"
+        />
+        <path
+          id="path_3"
           d="M 223.535 13.429 L 390.679 13.429 L 326.749 115 L 390.679 216.571 L 223.535 216.571 L 287.466 115 Z"
-          fill="none" stroke="#FFFFFF" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" />
+          fill="none"
+          stroke="#FFFFFF"
+          stroke-width="20"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
       </g>
     </svg>
   </div>
   <div class="center">
     <a routerLink="auth/login">Login</a>
+    <a routerLink="user/">User</a>
   </div>
   <div class="right">
-    <div class="snippetMenuIcon" [ngClass]="{ active: menuOpen }" aria-label="Menu Button" role="button" type="button"
-      (click)="toggleMenu()">
+    <div
+      class="snippetMenuIcon"
+      [ngClass]="{ active: menuOpen }"
+      aria-label="Menu Button"
+      role="button"
+      type="button"
+      (click)="toggleMenu()"
+    >
       <span class="snippetMenuiconBar firstBar" id="firstBar"></span>
       <!-- <span class="snippetMenuiconBar secondBar" id="secondBar"></span> -->
       <span class="snippetMenuiconBar thirdBar" id="thirdBar"></span>
