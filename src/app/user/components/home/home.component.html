@@ -32,11 +32,10 @@
         </button>
       </div>
     </div>
-    <div class="dashboardItem x3y1">
-      <div class="top">text</div>
-      <div class="body">x3y1</div>
+    <div class="dashboardItem x1y1" *ngFor="let planet of plantes$ | async">
+      <app-planet-vcard [planet]="planet"> </app-planet-vcard>
     </div>
-    <div class="dashboardItem x1y2">
+    <!-- <div class="dashboardItem x1y2">
       <div class="top">text</div>
       <div class="body">x1y2</div>
     </div>
@@ -115,6 +114,6 @@
     <div class="dashboardItem x1y2">
       <div class="top">text</div>
       <div class="body">x1y2</div>
-    </div>
+    </div> -->
   </div>
 </div>

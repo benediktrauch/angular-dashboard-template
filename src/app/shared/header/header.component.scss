@@ -49,8 +49,8 @@ header {
         height: 3em;
         border-radius: 1.5em;
         background: #e6e6e6;
-        background-size: cover;
-        background-position: center;
+        object-fit: cover;
+        object-position: center;
       }
     }
 

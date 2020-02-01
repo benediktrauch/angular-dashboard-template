@@ -1,0 +1,30 @@
+@import "~src/styles";
+
+.planetWrapper {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
+
+  .planetCardHeader {
+    border-bottom: 1px solid mat-color($mat-grey, 700);
+    @include mat-bg-elevation(2);
+    border-radius: 4px 4px 0 0;
+    margin-bottom: 1em;
+    padding: 1em 1em 0.5em;
+    font-size: 1.05em;
+    h3 {
+      padding: 0;
+      margin: 0;
+    }
+  }
+  .planetCardBody {
+    padding: 0.35em 1em 1em;
+  }
+
+  .planetCardFooter {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.35em;
+  }
+}

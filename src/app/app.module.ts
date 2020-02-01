@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { AlertModule } from './shared/alert/alert.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { PlanetVCardComponent } from './shared/planet-vcard/planet-vcard.component';
 
 @NgModule({
   declarations: [

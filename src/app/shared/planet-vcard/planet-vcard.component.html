@@ -1,0 +1,12 @@
+<div class="planetWrapper">
+  <div class="planetCardHeader">
+    <h3>{{ planet.name }}</h3>
+  </div>
+  <div class="planetCardBody">
+    <span>{{ planet.climate }}</span>
+    <span>{{ planet.terrain }}</span>
+  </div>
+  <div class="planetCardFooter">
+    Erstellt: {{ planet.created | date: "fullDate" }}
+  </div>
+</div>

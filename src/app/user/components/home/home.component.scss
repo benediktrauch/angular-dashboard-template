@@ -21,7 +21,7 @@
       border-radius: 4px;
       @include mat-elevation(1);
       @include mat-bg-elevation(2);
-      display: grid;
+      // display: grid;
       grid-template-rows: auto 1fr auto;
 
       .top {

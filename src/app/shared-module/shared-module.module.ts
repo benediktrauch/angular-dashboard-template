@@ -6,7 +6,8 @@ import { PageNotFoundComponent } from '../shared/page-not-found/page-not-found.c
 import { FooterComponent } from '../shared/footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
+import { HttpClientModule } from '@angular/common/http';
+import { PlanetVCardComponent } from '../shared/planet-vcard/planet-vcard.component';
 
 
 @NgModule({
@@ -14,18 +15,21 @@ import { RouterModule } from '@angular/router';
     HeaderComponent,
     SidebarComponent,
     PageNotFoundComponent,
-    FooterComponent
+    FooterComponent,
+    PlanetVCardComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
   exports: [
     HeaderComponent,
     SidebarComponent,
     PageNotFoundComponent,
-    FooterComponent
+    FooterComponent,
+    PlanetVCardComponent
   ]
 })
 export class SharedModuleModule { }

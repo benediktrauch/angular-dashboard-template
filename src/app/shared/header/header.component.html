@@ -47,13 +47,14 @@
     </div>
     <span>
       Hello,
-      <a routerLink="user">{{ user?.name }}</a>
+      <a routerLink="profile">{{ user?.name }}</a>
       !
     </span>
-    <span
+
+    <img
+      src="https://placeimg.com/72/164/any"
       class="userImage"
       alt="profileImage"
-      [ngStyle]="{ 'background-image': 'url(https://placeimg.com/72/72/any)' }"
-    ></span>
+    />
   </div>
 </header>
