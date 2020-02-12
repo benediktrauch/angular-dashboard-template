@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
   // private menuOpenIcon = require('src/assets/icons/menu_open-24px.svg');
   // private menuCloseIcon = require('src/assets/icons/menu-24px.svg');
 
-  @ViewChild('searchBar', { static: false }) searchBar?: ElementRef<HTMLElement>;
+  @ViewChild('searchBar') searchBar?: ElementRef<HTMLElement>;
 
   companyName = 'ninety:6';
 
